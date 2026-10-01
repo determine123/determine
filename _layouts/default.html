@@ -12,10 +12,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <div class="noise"></div>
-  <header class="site-header"><a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">D</span><span>Li Tianming</span></a><nav aria-label="主导航">{% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}</nav><a class="header-link" href="https://github.com/determine123" target="_blank" rel="noreferrer">GitHub ↗</a></header>
+  <header class="site-header"><a class="brand" href="{{ '/' | relative_url }}">李天明 / Li Tianming</a><nav aria-label="主导航">{% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endfor %}</nav><a class="header-link" href="https://github.com/determine123" target="_blank" rel="noreferrer">GitHub</a></header>
   <main>{{ content }}</main>
-  <script src="{{ '/assets/main.js' | relative_url }}"></script>
-  <footer class="site-footer wrap"><span>© 2026 Li Tianming · determine123</span><span>AI Agent · AI Infra · Robotics</span><a href="#top">回到顶部 ↑</a></footer>
+  <footer class="site-footer"><span>© 2026 李天明 · determine123</span><span>Agent · AI Infra · Embodied AI · Robotics</span></footer>
 </body>
 </html>

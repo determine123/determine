@@ -1,10 +1,6 @@
-- title: 关于
-  url: /#about
-- title: 研究
-  url: /#work
-- title: 方向
-  url: /#demos
-- title: 经历
-  url: /#timeline
+- title: 项目
+  url: /#projects
+- title: 笔记
+  url: /#notes
 - title: 联系
   url: /#contact
