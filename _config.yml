@@ -26,3 +26,6 @@ collections:
   learning:
     output: true
     permalink: /learning/:name/
+  essays:
+    output: true
+    permalink: /essays/:name/

@@ -1,0 +1,18 @@
+name: 个人随笔
+description: 记录感悟，自动发布到个人博客（提交后公开）
+title: "[随笔] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        在上方标题中保留 **[随笔]**，后面写这篇随笔的标题。
+        仅 determine123 提交的随笔会发布到博客。提交后公开展示；请确认文字和配图适合公开。
+        编辑本条记录会同步更新博客，关闭本条记录会从博客撤下（原始记录仍保留）。
+  - type: textarea
+    id: essay
+    attributes:
+      label: 正文
+      description: 随时记录，长短随意。支持 Markdown 和配图。
+      placeholder: 此刻想记下什么？
+    validations:
+      required: true

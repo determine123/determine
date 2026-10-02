@@ -1,0 +1,38 @@
+name: Publish personal essays
+on:
+  issues:
+    types: [opened, edited, closed, reopened, deleted]
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: read
+  pages: write
+  id-token: write
+concurrency:
+  group: essay-publisher
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Sync public essays
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/sync_essays.py
+      - name: Save generated essays
+        run: |
+          git config user.name "determine"
+          git config user.email "determine@sjtu.edu.cn"
+          git add _essays
+          if ! git diff --cached --quiet; then
+            git commit -m "Update personal essays"
+            git pull --rebase origin main
+            git push origin main
+          fi
+  publish:
+    needs: sync
+    uses: ./.github/workflows/jekyll.yml
