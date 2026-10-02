@@ -1,0 +1,6 @@
+---
+layout: personal
+title: 学习
+permalink: /learning/
+---
+<main class="page-wrap"><section class="paper"><h1>学习与阅读</h1><p class="muted">围绕 Agent 开发与 AI Infra，积累面试讨论、项目实验和研究问题。</p><p>当前阶段先读 Agent 架构与可观测性，再补检索、部署与性能分析。研究拓展重在提出问题、设置对照和复现实验。</p><div class="filters"><button class="filter active" data-tag="all" aria-pressed="true">全部</button><button class="filter" data-tag="Agent" aria-pressed="false">Agent</button><button class="filter" data-tag="AI Infra" aria-pressed="false">AI Infra</button><button class="filter" data-tag="研究方法" aria-pressed="false">研究方法</button><button class="filter" data-tag="开源协作" aria-pressed="false">开源协作</button></div>{% assign readings = site.learning | sort: 'order' %}{% for item in readings %}<a class="archive-row learning-row" data-tags="{{ item.tags | join: '|' | escape }}" href="{{ item.url | relative_url }}"><div><span class="learning-kind">{{ item.kind }} · {{ item.focus }}</span><h2>{{ item.title | escape }}</h2><p>{{ item.description | escape }}</p><span class="muted">原文作者：{{ item.source_author }} · {{ item.source_date }}</span></div><span class="learning-arrow">↗</span></a>{% endfor %}<p class="muted">共 {{ site.learning.size }} 篇。全文收录注明作者与许可；学习笔记附原文、面试问题与建议实验。</p></section></main>
