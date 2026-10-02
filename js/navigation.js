@@ -4,20 +4,26 @@
   if(!content||!window.fetch||!window.DOMParser)return;
   const base=content.dataset.base;
   let request=null;
+  const notice=document.createElement('div');notice.className='navigation-notice';notice.hidden=true;notice.setAttribute('role','status');
+  const message=document.createElement('span'),retry=document.createElement('button');retry.textContent='重试';notice.append(message,retry);document.body.append(notice);
+  let failed=null;retry.addEventListener('click',()=>{if(failed)navigate(failed.url,failed.push)});
   function eligible(url){return url.origin===location.origin&&url.pathname.startsWith(base)&&!url.pathname.match(/\.[a-z0-9]+$/i)}
   async function navigate(url,push){
     request?.abort();
     const controller=new AbortController();request=controller;
+    notice.hidden=true;
     content.setAttribute('aria-busy','true');
     try{
       const source=new URL(url.href);source.searchParams.set('_site',content.dataset.version||'global-music');
       const response=await fetch(source.href,{signal:controller.signal,cache:'no-store'});
       if(!response.ok)throw new Error('Page unavailable');
       const page=new DOMParser().parseFromString(await response.text(),'text/html');
+      if(controller.signal.aborted||request!==controller)return;
       let next=page.getElementById('page-content');
       // An older cached article still has the same main content layout.
       if(!next&&page.querySelector('main.page-wrap')){next=page.createElement('div');next.append(page.querySelector('main.page-wrap'))}
-      if(!next||controller.signal.aborted)throw new Error('Page unavailable');
+      if(!next&&page.querySelector('main.board')){next=page.createElement('div');const intro=page.querySelector('.intro');if(intro)next.append(intro);next.append(page.querySelector('main.board'));next.querySelector('.music-card')?.remove()}
+      if(!next)throw new Error('Page unavailable');
       document.getElementById('search-dialog')?.close();
       content.replaceChildren(...next.childNodes);
       document.title=page.title;
@@ -30,7 +36,11 @@
       const target=url.hash?document.getElementById(decodeURIComponent(url.hash.slice(1))):null;
       if(target)target.scrollIntoView();else window.scrollTo({top:0,behavior:'instant'});
       content.setAttribute('tabindex','-1');content.focus({preventScroll:true});
-    }catch(error){if(error.name!=='AbortError')location.assign(url.href)}
+    }catch(error){
+      if(controller.signal.aborted||request!==controller)return;
+      // Never reload the document on a transient navigation failure: that stops audio.
+      failed={url,push};message.textContent='页面暂未加载成功，音乐继续播放。';notice.hidden=false;
+    }
     finally{if(request===controller)content.removeAttribute('aria-busy')}
   }
   document.addEventListener('click',event=>{
