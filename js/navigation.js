@@ -10,10 +10,13 @@
     const controller=new AbortController();request=controller;
     content.setAttribute('aria-busy','true');
     try{
-      const response=await fetch(url.href,{signal:controller.signal});
+      const source=new URL(url.href);source.searchParams.set('_site',content.dataset.version||'global-music');
+      const response=await fetch(source.href,{signal:controller.signal,cache:'no-store'});
       if(!response.ok)throw new Error('Page unavailable');
       const page=new DOMParser().parseFromString(await response.text(),'text/html');
-      const next=page.getElementById('page-content');
+      let next=page.getElementById('page-content');
+      // An older cached article still has the same main content layout.
+      if(!next&&page.querySelector('main.page-wrap')){next=page.createElement('div');next.append(page.querySelector('main.page-wrap'))}
       if(!next||controller.signal.aborted)throw new Error('Page unavailable');
       document.getElementById('search-dialog')?.close();
       content.replaceChildren(...next.childNodes);
