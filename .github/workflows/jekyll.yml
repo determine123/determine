@@ -57,3 +57,15 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published homepage
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --location --retry 4 --retry-all-errors --retry-delay 5 --connect-timeout 10 --max-time 30 "$PAGE_URL" -o /tmp/blog-home.html
+          python3 - <<'PY'
+          from pathlib import Path
+          html = Path('/tmp/blog-home.html').read_text(encoding='utf-8')
+          assert 'id="page-content"' in html, 'Published homepage is missing the blog layout'
+          assert 'id="global-music"' in html, 'Published homepage is missing the music player'
+          print('Published blog responds successfully with its current layout and music player.')
+          PY
