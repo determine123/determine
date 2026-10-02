@@ -25,6 +25,13 @@ jobs:
           ref: main
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Cache public avatar locally
+        run: |
+          if curl --fail --location --retry 2 --max-time 30 'https://avatars.githubusercontent.com/u/182319045?s=240&v=4' -o /tmp/avatar.png; then
+            mv /tmp/avatar.png img/avatar.png
+          else
+            echo '::warning::Avatar download failed; retaining the remote fallback.'
+          fi
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
@@ -32,6 +39,14 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+      - name: Prepare Cloudflare mirror
+        run: python3 .github/scripts/prepare_cloudflare.py
+      - name: Upload Cloudflare package
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-static-site
+          path: .cloudflare-site/
+          include-hidden-files: true
   deploy:
     environment:
       name: github-pages

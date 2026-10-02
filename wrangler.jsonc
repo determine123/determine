@@ -1,0 +1,9 @@
+{
+  "name": "determine-blog",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./.cloudflare-site",
+    "not_found_handling": "404-page"
+  }
+}

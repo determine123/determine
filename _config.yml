@@ -20,7 +20,7 @@ permalink: /:year/:month/:day/:title/
 paginate: 10
 plugins: [jekyll-paginate]
 timezone: Asia/Shanghai
-exclude: [README.md, Gemfile, Gemfile.lock, _pages, _data, _sass, assets]
+exclude: [README.md, Gemfile, Gemfile.lock, _pages, _data, _sass, assets, wrangler.jsonc]
 
 collections:
   learning:

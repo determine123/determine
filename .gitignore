@@ -3,3 +3,5 @@ _site/
 .bundle/
 vendor/
 Gemfile.lock
+.cloudflare-site/
+__pycache__/
