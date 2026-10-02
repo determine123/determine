@@ -1,9 +1,9 @@
 ---
-title: 李天明 · Agent 开发与智能系统
+title: determine · Agent 开发与智能系统
 permalink: /
 ---
 <section class="intro" id="about">
-<p class="eyebrow">LI TIANMING / 上海</p><h1>李天明<span>Agent 开发与智能系统</span></h1>
+<p class="eyebrow">determine / 上海</p><h1>determine<span>Agent 开发与智能系统</span></h1>
 <p class="lead">上海交通大学机械硕士在读，成都理工大学人工智能本科。主攻 <strong>AI Agent 开发</strong>，关注 AI Infra、具身智能与机器人控制。</p>
 <p class="availability">求职方向：Agent 开发 / 大模型应用 / AI Infra 实习</p>
 <div class="intro-links"><a class="button" href="mailto:determine@sjtu.edu.cn">邮件联系</a><a href="https://github.com/determine123">GitHub</a><a href="#projects">查看项目</a></div>

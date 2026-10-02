@@ -3,7 +3,7 @@ layout: post
 title: "ReAct Agent：项目结构与阅读入口"
 subtitle: "工具调用、检索与记忆如何组成一个可运行的服务"
 date: 2026-10-02 10:00:00 +0800
-author: Li Tianming
+author: determine
 tags: [Agent, 工程实践]
 ---
 

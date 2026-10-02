@@ -1,0 +1,16 @@
+---
+layout: post
+title: "AI Infra自学指北"
+date: 2026-08-24 21:31:00 +0800
+author: determine
+tags: [知识星球, AI Infra]
+excerpt: "先写下自己的理解，然后让 AI 给出一个更严谨的定义（文档里也提到了“AI chat的回答”），最后结合两者的差异，提炼出你自己的、最直观的总结。  8/24  1.AI Infra是什么  我个人认为：是用以提供AI进行运算的基础设施架构，类似于用以开车的高"
+---
+<p>本文迁移自 <a href="https://articles.zsxq.com/id_dvew9ciud2ji.html">知识星球原文</a>，保留原始发布日期；作者统一署名 determine。</p>
+{% raw %}
+<div class="zsxq-content"><h4><em><u>先写下自己的理解，然后让 AI 给出一个更严谨的定义（文档里也提到了“AI chat的回答”），最后结合两者的差异，提炼出你自己的、最直观的总结。</u></em></h4><h4><strong><em>
+8/24</em></strong></h4><p>1.<span>AI Infra是什么</span></p><p><span>我个人认为：是用以提供AI进行运算的基础设施架构，类似于用以开车的</span><strong>高速公路基础</strong><span>设施等等，我也看过相关人士对这个AI Infra的理解，就是类似于给火车铺设</span><strong>铁轨</strong></p><p><span>（AI Infra 不仅负责让AI跑起来，还负责让它能够高效、稳定、规模化地运行）</span></p><p><span>
+</span></p><p>AI chat 的回答：<strong>AI Infra是一套为人工智能模型的数据处理、训练、部署、推理和运维提供计算、存储、网络、软件平台及相关管理能力的基础设施体系。</strong></p><p><br/></p><p><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/d4005bf03289ca2b.png"/></p><p><br/></p><p>拓展部分</p><p><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/d4005bf03289ca2b.png"/></p><p>拓展部分：</p><h3><strong>摩尔定律指出，集成电路上可容纳的晶体管数量约每18到24个月翻一倍，性能提升同时成本下降。</strong>
+<img alt="原文配图" loading="lazy" src="/determine/img/zsxq/46ab2a5ca2730047.png"/></h3><h1><br/></h1><h3><strong>Kubernetes（简称 K8s）是一个开源系统，用于自动部署、扩展和管理容器化应用程序。它被广泛用于容器编排，帮助开发者和运维人员高效管理大量容器。</strong></h3><p><br/></p><h1><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/987c93c755124ce2.png"/></h1><p><br/></p><p><br/></p><p><br/></p><p>2.<em>推理引擎（</em><strong><em>vLLM / SGLang / TensorRT-LLM</em></strong><em>）方向</em></p><p><span>这个方向的目标是</span><strong>把训练好的模型高效地部署上线，榨干每一分硬件性能</strong><span><br/></span></p><p><span><br/></span><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/b3acc95fef07d9f4.png"/><span><br/></span><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/a144485d0aa82806.png"/><span><br/></span><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/d32cffc67bc8f256.png"/></p><p><span><br/></span></p><p><span><br/></span></p><p><em>AI Infra 的</em><strong><em>训练方向</em></strong></p><p><span>这个方向的目标是</span><strong>让大模型能在成百上千张GPU上高效、稳定地完成训练</strong></p><p><strong><br/></strong></p><p><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/c0e8ae36843c6f9b.png"/></p><p><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/85ae790b1a1646f0.png"/></p><p><img alt="原文配图" loading="lazy" src="/determine/img/zsxq/04056fa129f5c686.png"/></p><p><br/></p><h2><br/></h2><h2>8/25</h2><p>自学第二天</p><p>早上看了路飞哥的Guide中关注transformer的原理</p><p>晚上在平台组算力跑nano-vLLM项目争取PR以及魔改一下</p><p>中间还跑通了nanoGPT的小项目，大概了解了一下大模型的工作流程
+</p></div>
+{% endraw %}
