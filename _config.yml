@@ -1,17 +1,23 @@
-title: "Li Tianming · determine123 · AI Agent / AI Infra"
-description: 李天明的个人技术博客与项目作品集，主攻 AI Agent 开发，关注 AI Infra、具身智能和机器人控制。
-url: "https://determine123.github.io"
-baseurl: "/determine"
-repository: "determine123/determine"
-theme: null
+title: determine
+SEOTitle: 李天明的技术博客 | determine
+description: Agent 开发、AI Infra 与机器人控制的工程记录。
+keyword: Agent, AI Infra, 具身智能, 机器人控制, 李天明
+url: https://determine123.github.io
+baseurl: /determine
+email: determine@sjtu.edu.cn
+github_username: determine123
+RSS: true
+header-img: img/home-bg.svg
+sidebar: true
+sidebar-about-description: "上海交大机械硕士在读<br>Agent · AI Infra · 机器人控制"
+sidebar-avatar: https://github.com/determine123.png
+featured-tags: true
+featured-condition-size: 0
+friends: []
 markdown: kramdown
-permalink: pretty
-collections:
-  pages:
-    output: true
-defaults:
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+paginate: 10
+plugins: [jekyll-paginate]
+timezone: Asia/Shanghai
+exclude: [README.md, Gemfile, Gemfile.lock, _pages, _data, _sass, assets]
