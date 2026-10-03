@@ -29,3 +29,7 @@ collections:
   essays:
     output: true
     permalink: /essays/:name/
+
+# Public Waline endpoint only; credentials belong in server environment variables.
+comments:
+  server_url: ""
