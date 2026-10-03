@@ -35,3 +35,7 @@ html[data-theme=night] .home-layout .card{background:#1d2d3de8;border-color:#6d8
 @media(max-width:1180px){.home-intro{margin-left:32px;margin-right:32px}}
 @media(max-width:900px){.home-layout{grid-template-columns:240px minmax(0,1fr);gap:20px}.home-main{grid-template-columns:1fr}.home-main>.card{grid-column:1}.home-layout .card{padding:20px}.top nav{gap:14px;font-size:13px}.home-main .project h3{font-size:22px}}
 @media(max-width:680px){header.top{padding:20px}.home-intro{margin:14px 20px 26px;padding:20px 0 26px}.home-intro h1{font-size:34px}.home-intro .eyebrow{font-size:10px;letter-spacing:.12em}.home-intro>p:last-of-type{font-size:13px}.home-layout{padding:0 20px;grid-template-columns:1fr;gap:20px}.home-sidebar{display:contents}.home-sidebar>.card{order:2}.home-sidebar>.profile{order:0}.home-main{order:1;gap:16px}.home-main .rows .row{grid-template-columns:1fr;gap:2px}.home-layout .card{padding:22px}.footer{margin:28px 20px 0;padding:24px 0 170px}.home-actions{margin-top:20px}}
+
+/* Keep floating controls away from the profile column. */
+.home-intro{margin-top:12px;margin-bottom:28px;padding-top:20px;padding-bottom:26px}.home-intro h1{font-size:40px}
+@media(min-width:681px){.music-global{left:auto;right:84px;width:280px}.search-trigger{width:48px;height:48px;padding:0;text-align:center;font-size:0}.search-trigger:before{content:'⌕';font-size:25px}.search-trigger kbd{display:none}}
