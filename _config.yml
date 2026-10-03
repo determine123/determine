@@ -32,4 +32,4 @@ collections:
 
 # Public Waline endpoint only; credentials belong in server environment variables.
 comments:
-  server_url: ""
+  server_url: "https://determine-comments.vercel.app"
