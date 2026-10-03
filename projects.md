@@ -31,3 +31,29 @@ permalink: /projects/
 持续探索强化学习、仿真评估与安全约束。相关复现材料整理中，公开代码和结果完善后收录。
 
 [AI Infra 学习记录](https://github.com/determine123/AI-Infra-study)
+
+### SJTU Canvas 签到提醒
+
+基于现有 Python 监控脚本完善，并封装为 Edge 扩展。支持多课程签到状态识别、点击启用、课前 30 分钟提醒、桌面通知、声音及可选手机推送。公开版由使用者填写课程与课表。
+
+提醒需要浏览器运行、电脑不休眠；手机服务不保证最终送达。不自动提交签到，不绕过登录。
+
+[源码与安装说明](https://github.com/determine123/SJTU_SignIn_Monitor) · [原项目](https://github.com/IcekyPrime/SJTU_SignIn_Monitor) · JavaScript / Manifest V3 / Python
+
+### SJTU 体育场馆助手
+
+基于 jAutoVenue 项目新增 Edge 扩展，保存场馆偏好、定位场次、标记可用空位并提醒页面变化。预约和付款由使用者在官网手动完成；旧 Python 脚本保留作历史参考。
+
+[源码与安装说明](https://github.com/determine123/jAutoVenue) · [原项目](https://github.com/ifarewell/jAutoVenue) · JavaScript / Manifest V3
+
+### SAI 社区网站部署改进
+
+部署上海交通大学 SAI 社区 MkDocs 网站，修正文档路径、完善搜索插件配置，并提供依赖清单与本地运行说明。社区内容和原站框架来自上游项目。
+
+[源码与部署说明](https://github.com/determine123/SAI-Community) · [原项目](https://github.com/SJTU-SAI-GeekCenter/SAI-Community) · MkDocs / Python
+
+## GitHub 公开仓库目录
+
+同步于 2026-10-03。下列目录包含公开独立仓库与 Fork；独立仓库也可能基于上游代码改造，具体来源和个人贡献以仓库说明为准。Fork 的收录不表示已经完成开发或贡献。
+
+{% include github-projects.html %}

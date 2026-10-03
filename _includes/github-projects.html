@@ -1,0 +1,5 @@
+{% assign standalone = site.data.github_projects | where: "fork", false %}
+{% assign forks = site.data.github_projects | where: "fork", true %}
+<h3>独立仓库（{{ standalone.size }}）</h3>
+<ul>{% for repo in standalone %}<li><a href="{{ repo.html_url | escape }}">{{ repo.name | escape }}</a>{% if repo.language %} · {{ repo.language | escape }}{% endif %}{% if repo.archived %} · 已归档{% endif %}{% if repo.description %}<p>{{ repo.description | escape }}</p>{% endif %}</li>{% endfor %}</ul>
+<details><summary>开源 Fork（{{ forks.size }}）</summary><ul>{% for repo in forks %}<li><a href="{{ repo.html_url | escape }}">{{ repo.name | escape }}</a>{% if repo.language %} · {{ repo.language | escape }}{% endif %}{% if repo.archived %} · 已归档{% endif %}{% if repo.description %}<p>{{ repo.description | escape }}</p>{% endif %}</li>{% endfor %}</ul></details>

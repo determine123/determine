@@ -1,0 +1,426 @@
+[
+  {
+    "name": "jAutoVenue",
+    "html_url": "https://github.com/determine123/jAutoVenue",
+    "description": "SJTU sports venue manual booking assistant Edge extension",
+    "language": "Python",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "SJTU_SignIn_Monitor",
+    "html_url": "https://github.com/determine123/SJTU_SignIn_Monitor",
+    "description": "Canvas attendance monitor and click-activated Edge extension",
+    "language": "Python",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "SAI-Community",
+    "html_url": "https://github.com/determine123/SAI-Community",
+    "description": "SAI Community local deployment improvements",
+    "language": "HTML",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "determine",
+    "html_url": "https://github.com/determine123/determine",
+    "description": "vuepress2.x + vuepress-theme-hope blog source",
+    "language": "HTML",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "openclaw-sjtu",
+    "html_url": "https://github.com/determine123/openclaw-sjtu",
+    "description": "🎓 上海交通大学全能 AI 助手 — 基于 OpenClaw 的交大校园 Skill 包 | 19项功能覆盖 DDL/选课/邮箱/食堂/图书馆/PPT生成",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determine123",
+    "html_url": "https://github.com/determine123/determine123",
+    "description": null,
+    "language": null,
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "flagos-s2-track1",
+    "html_url": "https://github.com/determine123/flagos-s2-track1",
+    "description": "FlagOS S2 赛道一 团队协作仓库",
+    "language": "Python",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "AIInfraGuide",
+    "html_url": "https://github.com/determine123/AIInfraGuide",
+    "description": "AI Infra 全栈从0入门学习资料：https://caomaolufei.github.io/AIInfraGuide/",
+    "language": "Astro",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "AgentGuide",
+    "html_url": "https://github.com/determine123/AgentGuide",
+    "description": "https://adongwanai.github.io/AgentGuide | AI Agent开发指南 | LangGraph实战 | 高级RAG | 转行大模型 | 大模型面试 | 算法工程师 | 面试题库 | 强化学习｜数据合成",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "ai-infra-book",
+    "html_url": "https://github.com/determine123/ai-infra-book",
+    "description": "《深入理解 AI Infra：量化分析与系统设计》（李博杰 著）开源书稿：从硬件约束和模型架构出发，量化推导 LLM 推理与训练系统设计。含全书正文、PDF、配套计算工具与实验",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "ai-agent-guide",
+    "html_url": "https://github.com/determine123/ai-agent-guide",
+    "description": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "n8n-Daily-Report-on-Cutting-Edge-R-D-of-Autonomous-Driving-and-AI",
+    "html_url": "https://github.com/determine123/n8n-Daily-Report-on-Cutting-Edge-R-D-of-Autonomous-Driving-and-AI",
+    "description": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "sjtu-resume-template",
+    "html_url": "https://github.com/determine123/sjtu-resume-template",
+    "description": " Elegant LaTeX resume template customized for SJTU engineering grads. Bilingual support & CI-ready.",
+    "language": "TeX",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determine.github.io",
+    "html_url": "https://github.com/determine123/determine.github.io",
+    "description": "Personal academic homepage of determine",
+    "language": "HTML",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "rd-efficiency-daily-assistant",
+    "html_url": "https://github.com/determine123/rd-efficiency-daily-assistant",
+    "description": "面向研发团队的技术日报生成助手，支持 Git 提交分析、行业新闻筛选、证据追溯和规则校验。",
+    "language": "Python",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "AI-Infra-study",
+    "html_url": "https://github.com/determine123/AI-Infra-study",
+    "description": "init to record my learning path of AI Infra, especially on inference.",
+    "language": "HTML",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "nano-vllm-study",
+    "html_url": "https://github.com/determine123/nano-vllm-study",
+    "description": "Nano vLLM",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "AI-Infra",
+    "html_url": "https://github.com/determine123/AI-Infra",
+    "description": "init to record my learning path of AI Infra, especially on inference.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "ai-infra-engineer-learning",
+    "html_url": "https://github.com/determine123/ai-infra-engineer-learning",
+    "description": "AI Infrastructure Engineer Learning Track - Production ML infrastructure curriculum (2-4 years experience)",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "infracost",
+    "html_url": "https://github.com/determine123/infracost",
+    "description": "Cloud cost intelligence for engineers, AI coding agents, and CI/CD 💰📉 Shift FinOps Left!",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "benchflow",
+    "html_url": "https://github.com/determine123/benchflow",
+    "description": "Research infra for creating RL environments, post-training, and evals.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "deer-flow",
+    "html_url": "https://github.com/determine123/deer-flow",
+    "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "tuixue.online-visa",
+    "html_url": "https://github.com/determine123/tuixue.online-visa",
+    "description": "https://tuixue.online/visa/ A Real-time Display of U.S. Visa Appointment Status Website 预约美帝签证各个签证处最早时间的爬虫",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "tianshou-docs-zh_CN",
+    "html_url": "https://github.com/determine123/tianshou-docs-zh_CN",
+    "description": "天授中文文档",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "tianshou",
+    "html_url": "https://github.com/determine123/tianshou",
+    "description": "An elegant PyTorch deep reinforcement learning library.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "AIInfra",
+    "html_url": "https://github.com/determine123/AIInfra",
+    "description": "AIInfra（AI 基础设施）指AI系统从底层芯片等硬件，到上层软件栈支持AI大模型训练和推理。",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "papers-notebook",
+    "html_url": "https://github.com/determine123/papers-notebook",
+    "description": ":page_facing_up: :cn: :page_with_curl: 论文阅读笔记（分布式系统、虚拟化、机器学习）Papers Notebook (Distributed System, Virtualization, Machine Learning)",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "awesome-resume-for-chinese",
+    "html_url": "https://github.com/determine123/awesome-resume-for-chinese",
+    "description": ":page_facing_up: 适合中文的简历模板收集（LaTeX，HTML/JS and so on）由 @hoochanlon 维护",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "Embodied-AI-Guide",
+    "html_url": "https://github.com/determine123/Embodied-AI-Guide",
+    "description": "[Lumina具身智能社区] 具身智能技术指南 Embodied-AI-Guide",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "deepseek-harness",
+    "html_url": "https://github.com/determine123/deepseek-harness",
+    "description": "DeepSeek Harness: Everything is a Plugin.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "dsh-deep-whale1",
+    "html_url": "https://github.com/determine123/dsh-deep-whale1",
+    "description": "DSH Web 鲸鱼娘皮肤系列(深海女仆工坊 maid-atelier)——CC BY-NC-SA 4.0",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "react-agent",
+    "html_url": "https://github.com/determine123/react-agent",
+    "description": null,
+    "language": "Python",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "my-blog",
+    "html_url": "https://github.com/determine123/my-blog",
+    "description": null,
+    "language": "CSS",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "my-hugo-blog",
+    "html_url": "https://github.com/determine123/my-hugo-blog",
+    "description": null,
+    "language": "HTML",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "detem123.github.io",
+    "html_url": "https://github.com/determine123/detem123.github.io",
+    "description": "个人主页，我的个人主页，个人主页源码，主页模板，homepage",
+    "language": "Vue",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "NotionNext",
+    "html_url": "https://github.com/determine123/NotionNext",
+    "description": "使用 NextJS + Notion API 实现的，支持多种部署方案的静态博客，无需服务器、零门槛搭建网站，为Notion和所有创作者设计。 (A static blog built with NextJS and Notion API, supporting multiple deployment options. No server required, zero threshold to set up a website. Designed for Notion and all creators.)",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem10.github.io",
+    "html_url": "https://github.com/determine123/detem10.github.io",
+    "description": "Ananke: A theme for Hugo Sites",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determind.github.io",
+    "html_url": "https://github.com/determine123/determind.github.io",
+    "description": "A minimalist Jekyll theme for running a personal blog powered by Jekyll and GitHub Pages",
+    "language": "HTML",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "de_tem.github.io",
+    "html_url": "https://github.com/determine123/de_tem.github.io",
+    "description": "Github Pages template for academic personal websites, forked from mmistakes/minimal-mistakes",
+    "language": "JavaScript",
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "SJTU-Automation",
+    "html_url": "https://github.com/determine123/SJTU-Automation",
+    "description": "SJTU自动化课程作业",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determin9.github.io",
+    "html_url": "https://github.com/determine123/determin9.github.io",
+    "description": "A minimal opinionated theme for Hugo",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determin4.github.io",
+    "html_url": "https://github.com/determine123/determin4.github.io",
+    "description": null,
+    "language": "CSS",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determin.github.io",
+    "html_url": "https://github.com/determine123/determin.github.io",
+    "description": "A minimalist Jekyll theme for running a blog or publication powered by Jekyll and GitHub Pages",
+    "language": "SCSS",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem9.github.io",
+    "html_url": "https://github.com/determine123/detem9.github.io",
+    "description": "DSG Jam Landing Page",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem8.github.io",
+    "html_url": "https://github.com/determine123/detem8.github.io",
+    "description": "Unity scripts and non-iOS builds for HyperBowl",
+    "language": null,
+    "fork": false,
+    "archived": false
+  },
+  {
+    "name": "detem7.github.io",
+    "html_url": "https://github.com/determine123/detem7.github.io",
+    "description": "A minimalistic Hugo theme for blogs with dark mode, a11y and page search.",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem6.github.io",
+    "html_url": "https://github.com/determine123/detem6.github.io",
+    "description": "Personal Website & Blog Theme for Hugo",
+    "language": "HTML",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem1.github.io",
+    "html_url": "https://github.com/determine123/detem1.github.io",
+    "description": "Jekyll theme based on Freelancer Start Bootstrap theme",
+    "language": "JavaScript",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determin3.github.io",
+    "html_url": "https://github.com/determine123/determin3.github.io",
+    "description": "Demo: https://removeif.github.io/removeif-demo hexo-theme",
+    "language": "JavaScript",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determined2.github.io",
+    "html_url": "https://github.com/determine123/determined2.github.io",
+    "description": "Hexo themes Magic change for SPFK",
+    "language": null,
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determined1.github.io",
+    "html_url": "https://github.com/determine123/determined1.github.io",
+    "description": "一个基于Hexo引擎的博客主题。",
+    "language": "JavaScript",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "determined.github.io",
+    "html_url": "https://github.com/determine123/determined.github.io",
+    "description": "一个卡片类拟态风格的Hexo主题",
+    "language": "EJS",
+    "fork": true,
+    "archived": false
+  },
+  {
+    "name": "detem.github.io",
+    "html_url": "https://github.com/determine123/detem.github.io",
+    "description": null,
+    "language": null,
+    "fork": false,
+    "archived": false
+  }
+]
