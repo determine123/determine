@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /discovery.json
+---
+{% assign entries = site.posts | concat: site.essays | sort: 'date' | reverse %}{% assign emitted = 0 %}[
+{% for entry in entries %}{% assign text = entry.content | strip_html | strip %}{% if text.size >= 120 %}{% if emitted > 0 %},{% endif %}{"date":{{ entry.date | date: '%Y.%m.%d' | jsonify }},"title":{{ entry.title | jsonify }},"url":{{ entry.url | relative_url | jsonify }},"excerpt":{{ text | truncate: 150 | jsonify }},"kind":{% if entry.layout == 'essay' %}"个人随笔"{% else %}"技术文章"{% endif %}}{% assign emitted = emitted | plus: 1 %}{% endif %}{% endfor %}
+]

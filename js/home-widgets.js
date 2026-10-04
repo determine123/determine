@@ -1,6 +1,21 @@
 (()=>{
- let recordsPromise;
+ let recordsPromise,discoveryPromise;
  function init(){
+  const trigger=document.getElementById('random-read'),result=document.getElementById('random-reading');
+  if(trigger&&result){let previous='';trigger.addEventListener('click',async()=>{
+   trigger.disabled=true;result.hidden=false;result.textContent='正在翻开一篇记录…';
+   try{
+    if(!discoveryPromise){const base=document.getElementById('page-content').dataset.base;discoveryPromise=fetch(base+'discovery.json').then(r=>{if(!r.ok)throw Error('Discovery unavailable');return r.json()}).catch(e=>{discoveryPromise=null;throw e})}
+    const entries=await discoveryPromise;if(!result.isConnected)return;
+    const pool=entries.filter(x=>x.url?.startsWith('/')&&x.url!==previous);if(!pool.length)throw Error('No entries');
+    const entry=pool[Math.floor(Math.random()*pool.length)];previous=entry.url;result.replaceChildren();
+    const meta=document.createElement('small');meta.textContent=entry.kind+' · '+entry.date;
+    const title=document.createElement('h2');title.textContent=entry.title;
+    const excerpt=document.createElement('p');excerpt.textContent=entry.excerpt;
+    const link=document.createElement('a');link.href=entry.url;link.textContent='阅读这一篇 →';result.append(meta,title,excerpt,link);
+   }catch{result.textContent='随机阅读暂不可用，请从写作或随笔栏目继续浏览。'}finally{trigger.disabled=false}
+  })}
+
   const root=document.getElementById('writing-calendar');if(!root)return;
   const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
   const values=Object.fromEntries(parts.map(x=>[x.type,x.value]));const today=values.year+'-'+values.month+'-'+values.day;
