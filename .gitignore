@@ -5,3 +5,6 @@ vendor/
 Gemfile.lock
 .cloudflare-site/
 __pycache__/
+
+# Local Python compiled files
+*.py[cod]

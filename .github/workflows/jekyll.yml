@@ -32,6 +32,8 @@ jobs:
           else
             echo '::warning::Avatar download failed; retaining the remote fallback.'
           fi
+      - name: Verify project directory sync
+        run: python3 -m unittest discover -s tests -p "test_sync_projects.py" -v
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

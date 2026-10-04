@@ -32,6 +32,14 @@ permalink: /projects/
 
 [AI Infra 学习记录](https://github.com/determine123/AI-Infra-study)
 
+### 沪漂树洞 · 原生匿名社区
+
+Expo / React Native 客户端与 Python FastAPI 后端，支持匿名身份、多版块讨论、共鸣、举报与屏蔽、先审后发，以及私密内测反馈。审核记录将内部备注与给作者的说明分开，避免公开管理员内部信息。
+
+已提供 Android 1.0.2 内测安装包并连接公网 PostgreSQL / Redis 后端。升级沿用原包名和签名，可覆盖安装；iOS 尚未生成 IPA 或上架。旧网页演示与原生版数据库尚未迁移合并。
+
+[下载 Android 内测版](https://github.com/determine123/hupiao-treehole-app/releases/download/v1.0.2-beta.1/hupiao-treehole-1.0.2-beta.1.apk) · [源码与验证记录](https://github.com/determine123/hupiao-treehole-app) · [版本说明](https://github.com/determine123/hupiao-treehole-app/releases/tag/v1.0.2-beta.1) · [原网页演示](https://hupiao-treehole.litianming99999.chatgpt.site/) · TypeScript / React Native / Python / PostgreSQL
+
 ### SJTU Canvas 签到提醒
 
 基于现有 Python 监控脚本完善，并封装为 Edge 扩展。支持多课程签到状态识别、点击启用、课前 30 分钟提醒、桌面通知、声音及可选手机推送。公开版由使用者填写课程与课表。
@@ -54,6 +62,6 @@ permalink: /projects/
 
 ## GitHub 公开仓库目录
 
-同步于 2026-10-03。下列目录包含公开独立仓库与 Fork；独立仓库也可能基于上游代码改造，具体来源和个人贡献以仓库说明为准。Fork 的收录不表示已经完成开发或贡献。
+同步于 2026-10-04。下列目录包含公开独立仓库与 Fork；独立仓库也可能基于上游代码改造，具体来源和个人贡献以仓库说明为准。Fork 的收录不表示已经完成开发或贡献。
 
 {% include github-projects.html %}
