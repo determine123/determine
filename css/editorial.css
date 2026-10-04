@@ -283,3 +283,5 @@ html[data-theme=night] .home-layout .card{background:var(--card);border-color:va
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 
 .footer-policies,.visit-stats{display:block}.visit-stats{flex-basis:100%;font-variant-numeric:tabular-nums}.visit-stats small{display:block;margin-top:5px;font-size:10px;color:var(--muted)}
+
+.music-qq-links{font-size:11px;color:var(--muted);margin-top:12px}.music-global.is-compact .music-qq-links{display:none}.music-qq-links a:hover{color:var(--accent)}
