@@ -11,7 +11,13 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    {% assign feed_entries = site.posts | concat: site.essays | sort: 'date' | reverse %}
+    {% assign emitted = 0 %}
+    {% for post in feed_entries %}
+      {% assign body_text = post.content | strip_html | strip %}
+      {% if post.source == 'qzone' and body_text.size < 120 %}{% continue %}{% endif %}
+      {% if emitted >= 20 %}{% break %}{% endif %}
+      {% assign emitted = emitted | plus: 1 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | xml_escape }}</description>

@@ -19,3 +19,7 @@ description: 从 Agent 工程到智能系统
 ### 联系
 
 [determine@sjtu.edu.cn](mailto:determine@sjtu.edu.cn) · [GitHub](https://github.com/determine123)
+
+### 写作与订阅
+
+记录技术实践，也保留生活的片段。[订阅 RSS]({{ "/feed.xml" | relative_url }}) · [关于本站与内容来源]({{ "/colophon/" | relative_url }})
