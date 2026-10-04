@@ -7,4 +7,5 @@ permalink: /sitemap.xml
 {% assign documents = site.posts | concat: site.essays | concat: site.learning %}{% for entry in documents %}<url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
 <url><loc>{{ '/' | absolute_url }}</loc></url><url><loc>{{ '/about/' | absolute_url }}</loc></url><url><loc>{{ '/projects/' | absolute_url }}</loc></url><url><loc>{{ '/essays/' | absolute_url }}</loc></url><url><loc>{{ '/learning/' | absolute_url }}</loc></url><url><loc>{{ '/archive/' | absolute_url }}</loc></url>
 <url><loc>{{ '/moments/' | absolute_url }}</loc></url><url><loc>{{ '/guestbook/' | absolute_url }}</loc></url>
+<url><loc>{{ '/timeline/' | absolute_url }}</loc></url>
 </urlset>

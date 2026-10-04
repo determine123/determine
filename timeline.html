@@ -1,0 +1,16 @@
+---
+layout: personal
+title: 时间归档
+permalink: /timeline/
+---
+{% assign records = site.posts | concat: site.essays | sort: 'date' | reverse %}
+<main class="page-wrap"><a class="back" href="{{ '/' | relative_url }}">← 首页</a><section class="paper timeline-space">
+<p class="eyebrow">THE ARCHIVE</p><h1>把时间翻成一页页记录。</h1>
+<p class="muted">{{ site.posts.size }} 篇技术文章 · {{ site.essays.size }} 篇个人随笔。按原记录时间归档；学习资料的收录时间单独列出。</p>
+<div class="timeline-controls" data-timeline-controls hidden><label>内容<select id="timeline-kind"><option value="all">全部记录</option><option value="post">技术文章</option><option value="essay">个人随笔</option></select></label><label>年份<select id="timeline-year"><option value="all">全部年份</option>{% assign years = records | group_by_exp: 'entry', "entry.date | date: '%Y'" %}{% for year in years %}<option value="{{ year.name }}">{{ year.name }} 年</option>{% endfor %}</select></label><label class="timeline-search">查找<input id="timeline-query" type="search" placeholder="标题关键词…"></label><button type="button" id="timeline-reset">重置</button></div>
+<p id="timeline-count" class="muted" role="status">共 {{ records.size }} 条记录</p>
+{% for year in years %}<details class="timeline-year" {% if forloop.first %}open{% endif %}><summary>{{ year.name }} <span>{{ year.items.size }} 条记录</span></summary>
+{% assign months = year.items | group_by_exp: 'entry', "entry.date | date: '%m'" %}{% for month in months %}<section class="timeline-month"><h2>{{ month.name }} 月</h2><ul>{% for entry in month.items %}<li class="timeline-entry" data-year="{{ year.name }}" data-kind="{% if entry.collection == 'essays' %}essay{% else %}post{% endif %}"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: '%m.%d' }}</time><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a><span>{% if entry.collection == 'essays' %}随笔{% else %}技术{% endif %}</span></li>{% endfor %}</ul></section>{% endfor %}</details>{% endfor %}
+<p id="timeline-empty" class="muted" hidden>没有匹配的记录，试试其他年份或关键词。</p>
+<section class="timeline-learning"><h2>学习资料 · 收录记录</h2><p class="muted">下列日期为本站收录日期，原作者及原文日期见各篇说明。</p>{% assign readings = site.learning | sort: 'added' | reverse %}{% for reading in readings %}<a class="archive-row" href="{{ reading.url | relative_url }}"><span>{{ reading.title | escape }}</span><time>{{ reading.added }}</time></a>{% endfor %}</section>
+</section></main>
