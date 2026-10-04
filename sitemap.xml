@@ -1,0 +1,9 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% assign documents = site.posts | concat: site.essays | concat: site.learning %}{% for entry in documents %}<url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
+<url><loc>{{ '/' | absolute_url }}</loc></url><url><loc>{{ '/about/' | absolute_url }}</loc></url><url><loc>{{ '/projects/' | absolute_url }}</loc></url><url><loc>{{ '/essays/' | absolute_url }}</loc></url><url><loc>{{ '/learning/' | absolute_url }}</loc></url><url><loc>{{ '/archive/' | absolute_url }}</loc></url>
+</urlset>
