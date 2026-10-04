@@ -8,13 +8,13 @@
   const callback='determineVisits_'+Date.now()+'_'+Math.random().toString(36).slice(2);
   const script=document.createElement('script');let timeout;
   function cleanup(){clearTimeout(timeout);script.remove();delete window[callback];busy=false}
-  function fail(){cleanup();note.textContent=hasData?'上次真实统计 · 连接中断，稍后更新':'手动展示基数（非实测） · 真实统计暂未连接';if(attempts<3)retryTimer=setTimeout(load,15000*attempts)}
+  function fail(){cleanup();note.textContent=hasData?'手动基数 + 上次统计值 · 连接中断，稍后更新':'手动展示基数（非实测） · 真实统计暂未连接';if(attempts<3)retryTimer=setTimeout(load,15000*attempts)}
   window[callback]=data=>{
    const views=Number(data.site_pv),visitors=Number(data.site_uv);
    if(!Number.isSafeInteger(views)||views<0||!Number.isSafeInteger(visitors)||visitors<0){fail();return}
    cleanup();clearTimeout(retryTimer);hasData=true;attempts=0;
-   pv.textContent=views.toLocaleString('zh-CN');uv.textContent=visitors.toLocaleString('zh-CN');
-   note.textContent='不蒜子真实统计 · 访客数为估计值 · '+new Date().toLocaleTimeString('zh-CN',{hour12:false})+' 更新';
+   pv.textContent=(1000+views).toLocaleString('zh-CN')+'+';uv.textContent=(1000+visitors).toLocaleString('zh-CN')+'+';
+   note.textContent='手动基数 1000 + 不蒜子累计值 · 访客数为估计值 · '+new Date().toLocaleTimeString('zh-CN',{hour12:false})+' 更新';
   };
   script.src='https://busuanzi.ibruce.info/busuanzi?jsonpCallback='+callback;
   script.referrerPolicy='no-referrer-when-downgrade';script.async=true;script.onerror=fail;
