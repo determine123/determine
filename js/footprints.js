@@ -6,7 +6,7 @@ async function init(){
  const root=document.querySelector('[data-footprints]');if(!root)return;
  const state={abort:new AbortController(),map:null};active=state;
  const $=id=>root.querySelector('#'+id),base=document.getElementById('page-content').dataset.base;
- const cities=[{name:'上海',lat:31.23,lng:121.47},{name:'杭州',lat:30.27,lng:120.15},{name:'苏州',lat:31.30,lng:120.58},{name:'宁波',lat:29.87,lng:121.55},{name:'北京',lat:39.90,lng:116.40},{name:'天津',lat:39.13,lng:117.20},{name:'沈阳',lat:41.80,lng:123.43}];
+ const cities=[{name:'上海',lat:31.23,lng:121.47},{name:'杭州',lat:30.27,lng:120.15},{name:'苏州',lat:31.30,lng:120.58},{name:'宁波',lat:29.87,lng:121.55},{name:'北京',lat:39.90,lng:116.40},{name:'天津',lat:39.13,lng:117.20},{name:'沈阳',lat:41.80,lng:123.43},{name:'铜仁',lat:27.72,lng:109.19}];
  const dataPromise=fetch(root.dataset.source,{signal:state.abort.signal}).then(response=>{if(!response.ok)throw Error('相册数据加载失败');return response.json();});
  Promise.all([loadMap(),dataPromise]).then(([,data])=>{
    if(active!==state)return;
