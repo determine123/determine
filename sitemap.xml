@@ -3,9 +3,16 @@ layout: null
 permalink: /sitemap.xml
 ---
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="{{ '/xml-view.xsl' | relative_url }}"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% assign documents = site.posts | concat: site.essays | concat: site.learning %}{% for entry in documents %}<url><loc>{{ entry.url | absolute_url | xml_escape }}</loc></url>{% endfor %}
-<url><loc>{{ '/' | absolute_url }}</loc></url><url><loc>{{ '/about/' | absolute_url }}</loc></url><url><loc>{{ '/projects/' | absolute_url }}</loc></url><url><loc>{{ '/essays/' | absolute_url }}</loc></url><url><loc>{{ '/learning/' | absolute_url }}</loc></url><url><loc>{{ '/archive/' | absolute_url }}</loc></url>
-<url><loc>{{ '/moments/' | absolute_url }}</loc></url><url><loc>{{ '/guestbook/' | absolute_url }}</loc></url>
-<url><loc>{{ '/timeline/' | absolute_url }}</loc></url>
+{% assign documents = site.posts | concat: site.essays | concat: site.learning | concat: site.pages | sort: 'url' %}
+{% assign previous_url = '' %}
+{% for entry in documents %}
+{% if entry.published == false or entry.sitemap == false %}{% continue %}{% endif %}
+{% assign ending = entry.url | slice: -1, 1 %}
+{% if ending != '/' or entry.url == '/404.html' %}{% continue %}{% endif %}
+{% if entry.url == previous_url %}{% continue %}{% endif %}
+{% assign previous_url = entry.url %}
+<url><loc>{{ entry.url | absolute_url | xml_escape }}</loc>{% if entry.last_modified_at %}<lastmod>{{ entry.last_modified_at | date_to_xmlschema }}</lastmod>{% endif %}</url>
+{% endfor %}
 </urlset>
