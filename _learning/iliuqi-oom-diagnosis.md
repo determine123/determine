@@ -1,7 +1,7 @@
 ---
 layout: learning
 title: "OOM 排查：区分应用退出与系统内存事件"
-date: "2026-10-05T11:00:00+08:00"
+date: "2026-10-05T00:00:00+08:00"
 added: "2026-10-05"
 source_author: "林渡 · 云栖梦泽"
 source_date: "2026-08-24"
