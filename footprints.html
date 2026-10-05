@@ -1,0 +1,15 @@
+---
+layout: personal
+title: 足迹与相册
+permalink: /footprints/
+description: 江浙沪的生活与旅行照片，城市地图和相册墙。
+---
+<link rel="stylesheet" href="{{ '/css/leaflet.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/css/footprints.css' | relative_url }}">
+<main class="page-wrap footprint-page" data-footprints data-source="{{ '/footprints-data.json' | relative_url }}">
+<section class="paper fp-intro"><small>FOOTPRINTS · 在路上</small><h1>把生活，留在地图上。</h1><p>上海、杭州、苏州。在江浙沪的街头、校园与日常里，慢慢收集一些记忆。</p><div class="fp-stats"><span><b id="fp-total">—</b> 张精选照片</span><span><b>1</b> 个相册</span><span><b>3</b> 座已确认城市</span></div></section>
+<section class="paper"><h2>城市足迹</h2><p class="muted">城市由本人提供，点位为城市概略位置；照片暂未逐张定位，不代表拍摄坐标，也不连成实际旅行路线。</p><div id="fp-map" aria-label="上海、杭州、苏州城市地图"></div><p id="fp-map-note" role="status"></p><div class="fp-cities"><button data-city="上海">上海</button><button data-city="杭州">杭州</button><button data-city="苏州">苏州</button></div></section>
+<section class="paper"><div class="fp-heading"><div><small>ALBUM / 江浙沪 · 精选</small><h2>一张张，都是当时。</h2></div><label>年份 <select id="fp-year"><option value="">全部年份</option></select></label></div><p class="muted">精选城市街景、地标、自然风光与日常，减少重复场景。日期来自下载文件名，拍摄日期尚未核实。点击照片查看大图。</p><p id="fp-state" role="status">正在加载相册…</p><div id="fp-grid" class="fp-grid"></div><button id="fp-more" hidden>加载更多照片</button></section>
+<p class="muted">页面结构参考 <a href="https://52he.cc/footprints" target="_blank" rel="noopener">小和的足迹页</a>；照片来自本人 QQ 空间备份。</p>
+<dialog id="fp-lightbox" aria-label="照片大图"><button id="fp-close" aria-label="关闭大图">×</button><img id="fp-large" alt=""><p id="fp-caption"></p><div><button id="fp-prev">上一张</button><span id="fp-position"></span><button id="fp-next">下一张</button></div></dialog>
+</main>
