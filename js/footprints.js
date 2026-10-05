@@ -6,10 +6,11 @@ async function init(){
  const root=document.querySelector('[data-footprints]');if(!root)return;
  const state={abort:new AbortController(),map:null};active=state;
  const $=id=>root.querySelector('#'+id),base=document.getElementById('page-content').dataset.base;
- const cities=[{name:'上海',lat:31.23,lng:121.47},{name:'杭州',lat:30.27,lng:120.15},{name:'苏州',lat:31.30,lng:120.58},{name:'宁波',lat:29.87,lng:121.55},{name:'北京',lat:39.90,lng:116.40},{name:'天津',lat:39.13,lng:117.20},{name:'沈阳',lat:41.80,lng:123.43},{name:'铜仁',lat:27.72,lng:109.19},{name:'重庆',lat:29.56,lng:106.55},{name:'大理',lat:25.61,lng:100.27},{name:'凤凰古城',lat:27.95,lng:109.60}];
+ let cities=[{name:'上海',lat:31.23,lng:121.47},{name:'杭州',lat:30.27,lng:120.15},{name:'苏州',lat:31.30,lng:120.58},{name:'宁波',lat:29.87,lng:121.55},{name:'北京',lat:39.90,lng:116.40},{name:'天津',lat:39.13,lng:117.20},{name:'沈阳',lat:41.80,lng:123.43},{name:'铜仁',lat:27.72,lng:109.19},{name:'重庆',lat:29.56,lng:106.55},{name:'大理',lat:25.61,lng:100.27},{name:'凤凰古城',lat:27.95,lng:109.60}];
  const dataPromise=fetch(root.dataset.source,{signal:state.abort.signal}).then(response=>{if(!response.ok)throw Error('相册数据加载失败');return response.json();});
  Promise.all([loadMap(),dataPromise]).then(([,data])=>{
    if(active!==state)return;
+   cities=[...cities,...(data.cityPoints||[])];
    const map=L.map($('fp-map'),{scrollWheelZoom:false});state.map=map;
    const layer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
    layer.on('tileerror',()=>{$('fp-map-note').textContent='地图底图暂时无法加载；城市列表与照片仍可浏览。';});
@@ -21,7 +22,7 @@ async function init(){
      const popup=document.createElement('div');popup.className='fp-map-popup';
      const title=document.createElement('strong');title.textContent=c.name+' · '+(photo?.place||'城市足迹');popup.append(title);
      if(photo){const button=document.createElement('button'),image=document.createElement('img');button.className='fp-map-photo';button.setAttribute('aria-label','查看'+c.name+'代表照片大图');image.src=base+photo.image;image.alt=photo.place||c.name;button.append(image);button.addEventListener('click',()=>{if(active===state)state.openPhoto?.(photo.id);});popup.append(button);}
-     const note=document.createElement('p');note.textContent='相册：'+(photo?.album||'待补充')+' · 点位为城市概略位置。照片地点按画面识别，待核对。';popup.append(note);
+     const note=document.createElement('p');note.textContent=(photo?'相册：'+photo.album:'地点已记录 · 照片待匹配')+' · 城市／县镇概略位置。'+(c.evidence||'照片按画面识别，待核对。');popup.append(note);if(c.journey){const link=document.createElement('a');link.href=base+c.journey.replace(/^\//,'');link.textContent='阅读318详细旅记';popup.append(link);}
      return L.marker([c.lat,c.lng],{title:c.name+'代表照片',alt:c.name+'代表照片',icon:L.divIcon({html:iconNode,className:'fp-photo-marker',iconSize:[64,82],iconAnchor:[32,70],popupAnchor:[0,-65]})}).addTo(map).bindPopup(popup,{maxWidth:280});
    });
    map.fitBounds(cities.map(c=>[c.lat,c.lng]),{padding:[65,65]});
@@ -29,7 +30,7 @@ async function init(){
  }).catch(()=>{if(active===state)$('fp-map-note').textContent='地图组件暂未加载成功，可先浏览相册。';});
  try{
  const data=await dataPromise;if(active!==state)return;
- const photos=data.photos;photos.sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.label.localeCompare(b.label));$('fp-total').textContent=photos.length;
+ const photos=data.photos;photos.sort((a,b)=>(Number(a.album==='318川藏线之旅')-Number(b.album==='318川藏线之旅'))||(a.album==='318川藏线之旅'?a.sourceOrder-b.sourceOrder:(b.date||'').localeCompare(a.date||'')||a.label.localeCompare(b.label)));$('fp-total').textContent=photos.length;
  const years=[...new Set(photos.map(p=>p.date?.slice(0,4)).filter(Boolean))].sort().reverse();years.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;$('fp-year').append(o);});
  let list=photos,shown=0,index=0;const box=$('fp-lightbox');
  function open(i){index=i;const p=list[i];$('fp-large').src=base+p.image;$('fp-large').alt=p.album+' · '+(p.date||'日期待确认');$('fp-caption').textContent=p.album+' · '+(p.date||'日期待确认')+' · '+(p.place?(p.city+' / '+p.place+' · 画面识别待核对'):'具体地点待确认');$('fp-position').textContent=(i+1)+' / '+list.length;if(!box.open)box.showModal();}
