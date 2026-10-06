@@ -1,0 +1,51 @@
+---
+layout: personal
+title: 友情链接
+description: 值得慢慢阅读的技术博客、生活记录与独立博客社区。
+permalink: /links/
+link_groups:
+  - name: 技术与研究
+    links:
+      - name: 卡库伊2.0
+        url: https://blog.kkii.org/
+        mark: K
+        description: Sunplace 的个人博客，记录技术实践与网站维护。
+      - name: Hux.Pro
+        url: https://hux.pro/
+        mark: H
+        description: Hux 的个人博客，也是本站模板的来源。
+      - name: Tairan He · 何泰然
+        url: https://tairanhe.com/
+        mark: T
+        description: 机器人学习、全身控制与研究项目的个人主页。
+  - name: 生活与个人主页
+    links:
+      - name: 小和的雪糕铺
+        url: https://52he.cc/
+        mark: 和
+        description: 用照片、回忆与足迹保存生活里的时刻。
+      - name: GoodBoyboy’s Blog
+        url: https://blog.goodboyboy.top/
+        mark: G
+        description: 技术教程、校园日常与个人写作。
+      - name: ASXE
+        url: https://www.asxe.vip/
+        mark: A
+        description: Code Create Life，通往博客与个人项目的主页。
+  - name: 独立博客社区
+    links:
+      - name: 十年之约
+        url: https://www.foreverblog.cn/
+        mark: 十
+        description: 发现持续写作的个人博客，沿链接遇见不同的生活。
+---
+<link rel="stylesheet" href="{{ '/css/friends.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<main class="page-wrap friend-page">
+  <header class="paper"><small>FRIENDS &amp; READING</small><h1>友情链接</h1><p>沿着一个链接，看看另一个人的世界。这里收录技术实践、研究与生活记录，也留一扇通向独立博客社区的门。</p><p class="friend-note">目前收录 7 个站点，均为本站单向推荐。尚未确认互链，不代表对方已收录本站。链接整理于 2026 年 10 月 6 日。</p><nav aria-label="友链分类">{% for group in page.link_groups %}<a href="#friends-{{ forloop.index }}">{{ group.name | escape }}</a>{% endfor %}<a href="#exchange">交换友链</a></nav></header>
+  {% for group in page.link_groups %}
+  <section class="paper" id="friends-{{ forloop.index }}"><h2>{{ group.name | escape }}</h2><div class="friend-grid">
+    {% for friend in group.links %}<a class="friend-card" href="{{ friend.url | escape }}" target="_blank" rel="noopener noreferrer"><span class="friend-mark" aria-hidden="true">{{ friend.mark | escape }}</span><div><h3>{{ friend.name | escape }} <span aria-hidden="true">↗</span></h3><p>{{ friend.description | escape }}</p><small>{{ friend.url | remove: 'https://' | remove: '/' | escape }}</small></div></a>{% endfor %}
+  </div></section>
+  {% endfor %}
+  <section class="paper" id="exchange"><h2>交换友链</h2><p>欢迎认真更新的个人博客交流。技术、学习、旅行与生活记录都可以；请提供名称、网址、简介和友链页面地址。是否收录以实际内容与可访问情况为准。</p><p><a href="mailto:determine@sjtu.edu.cn?subject=友情链接申请">通过邮件联系</a> · <a href="{{ '/guestbook/' | relative_url }}">到留言板交流</a></p><details><summary>本站友链信息</summary><dl><dt>名称</dt><dd>determine.log</dd><dt>网址</dt><dd>https://determine123.github.io/determine/</dd><dt>简介</dt><dd>Agent、AI Infra 与机器人控制的工程记录，也保存旅行与生活片段。</dd><dt>友链页面</dt><dd>https://determine123.github.io/determine/links/</dd></dl></details><p class="friend-note">页面组织参考 <a href="https://blog.kkii.org/links" target="_blank" rel="noopener noreferrer">卡库伊2.0 的友情链接</a>。本站未向上述站点发送交换申请；如链接变更或希望移除，欢迎联系。</p></section>
+</main>
