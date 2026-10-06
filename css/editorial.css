@@ -314,3 +314,6 @@ html[data-theme=night] .home-layout .card{background:var(--card);border-color:va
 .site-status{display:flex;flex-wrap:wrap;gap:10px 24px;flex-basis:100%;line-height:1.8}.site-status strong{font-weight:500;color:var(--muted)}.visit-stats label{display:inline-flex;align-items:center;gap:5px;margin-top:8px}.visit-stats button{border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:6px;padding:3px 8px;font:inherit;cursor:pointer}.site-status time{overflow-wrap:anywhere}@media(max-width:720px){.site-status{display:grid;gap:6px}.visit-stats{line-height:1.9}}
 
 .footer .visit-stats>span{display:inline}
+
+/* Keep the moderation entry visible above every comment mount. */
+.comment-section .comment-header{flex-wrap:wrap;gap:12px}.comment-section .comment-header h2{margin:0}.comment-section .comment-admin-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border:1px solid currentColor;border-radius:10px;color:var(--accent,#2d655f);font-size:14px;text-decoration:none;white-space:nowrap}.comment-section .comment-admin-link:hover{background:var(--soft,#77929812)}.comment-section .comment-admin-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}

@@ -1,6 +1,6 @@
 {% unless page.comments == false %}
 <section class="paper comment-section" aria-labelledby="comments-title" data-comment-server="{{ site.comments.server_url | escape }}" data-comment-path="{{ page.url | relative_url | escape }}">
-  <div class="comment-header"><h2 id="comments-title">评论与交流</h2>{% if site.comments.server_url != empty and site.comments.server_url %}<a href="{{ site.comments.server_url | escape }}/ui" target="_blank" rel="noopener noreferrer">评论管理 ↗</a>{% endif %}</div>
+  <div class="comment-header"><h2 id="comments-title">评论与交流</h2>{% if site.comments.server_url != empty and site.comments.server_url %}<a class="comment-admin-link" aria-label="管理员登录审核评论（新窗口打开）" href="{{ site.comments.server_url | escape }}/ui" target="_blank" rel="noopener noreferrer">登录审核 ↗</a>{% endif %}</div>
   {% if site.comments.server_url != empty and site.comments.server_url %}
   <p class="comment-help">登录后参与讨论。评论将公开展示，请勿填写隐私信息。回复通知可在评论账号中设置。</p>
   <p class="comment-status" role="status">评论正在加载…</p><div class="comment-mount"></div>
