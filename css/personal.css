@@ -18,6 +18,8 @@ html[data-theme=night] .muted,html[data-theme=night] .top nav,html[data-theme=ni
 
 .nav-write{border:1px solid #77929850;border-radius:12px;padding:5px 10px}.comment-section{margin-top:24px}.comment-header{display:flex;align-items:center;justify-content:space-between;gap:16px}.comment-header h2{font-size:21px}.comment-help{color:var(--muted);font-size:13px;line-height:1.8}.comment-status{color:var(--muted);font-size:14px}.comment-section{--waline-font-size:14px;--waline-theme-color:#2d655f;--waline-active-color:#3d8279;--waline-bg-color:transparent;--waline-text-color:inherit}
 
+.essay-body img{display:block;max-width:100%;height:auto;margin:24px auto}
+
 /* Homepage reading hierarchy and responsive layout. */
 header.top{max-width:1180px;padding:24px 32px}.top nav{align-items:center;gap:22px}
 .home-intro{max-width:1116px;text-align:left;margin:28px auto 36px;padding:30px 0 34px;border-bottom:1px solid #77929830}
