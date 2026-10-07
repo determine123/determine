@@ -17,8 +17,9 @@ issue_number: 2
 接下来的几天就是，帮爸妈干活，减少他们的压力，期间被老哥带去看了两场戏剧，虽然兴趣不浓，但是还是有收获的
 
 期间空闲时间，我一边在看交大一些开源项目一边在完善我自己个人博客
-
+&lt;img width="944" height="286" alt="Image" src="https://github.com/user-attachments/assets/e73f511e-55a9-4e04-9dbb-f5da41e36813" /&gt;
 &lt;img width="1770" height="870" alt="Image" src="https://github.com/user-attachments/assets/fa4794a3-6d04-4180-9aa4-1424d2de74fe" /&gt;
+
 主要是随缘看别人的个人博客，我感觉挺有意思的，博客让我们输出自己的思想，我感觉可以类比于养孩子一样，把我们的想法灌输在它上面
 
 &lt;img width="914" height="896" alt="Image" src="https://github.com/user-attachments/assets/08d799a1-5bfc-47ca-90aa-3646f2131bed" /&gt;
