@@ -7,7 +7,8 @@
   function read(storage,key){try{return JSON.parse(storage.getItem(key));}catch{return null;}}
   function save(storage,key,value){try{storage.setItem(key,JSON.stringify(value));}catch{}}
   let session,local;
-  try{session=window.sessionStorage;local=window.localStorage;disabled=local.getItem(opt)==='1';}catch{}
+  try{session=window.sessionStorage;}catch{}
+  try{local=window.localStorage;disabled=local.getItem(opt)==='1';}catch{}
   function data(value){
     const number=v=>typeof v==='number'?v:(typeof v==='string'&&/^\d+$/.test(v)?Number(v):NaN);
     const views=number(value?.site_pv),visitors=number(value?.site_uv);
@@ -48,7 +49,7 @@
       note.textContent=disabled?'本浏览器不参与后续统计':'iBruce 统计累计值 · UV 为估计值 · 本标签页缓存';
     }catch(error){
       render(previous?.data);
-      note.textContent=(cached?'显示最近成功统计 · ':'')+(error.message==='timeout'?'统计连接超时':error.message==='format'?'统计数据异常':'统计服务连接失败')+' · 可手动重试';
+      note.textContent=disabled?'本浏览器不参与统计':(cached?'显示最近成功统计 · ':'')+(error.message==='timeout'?'统计连接超时':error.message==='format'?'统计数据异常':'统计服务连接失败')+' · 可手动重试';
     }finally{busy=false;controls();}
   }
   if(exclude){exclude.checked=disabled;exclude.addEventListener('change',()=>{disabled=exclude.checked;try{local.setItem(opt,disabled?'1':'0');}catch{}load();});}

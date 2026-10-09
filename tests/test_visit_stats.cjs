@@ -12,7 +12,8 @@ function harness({session=storage(),local=storage(),blocked=false}={}){
   const scripts=[],timers=new Map();let id=0;
   const context={document:{getElementById:key=>elements[key],createElement:()=>({remove(){this.removed=true;}}),head:{appendChild:script=>scripts.push(script)}},setTimeout:fn=>{timers.set(++id,fn);return id;},clearTimeout:key=>timers.delete(key)};
   context.window=context;
-  if(blocked){Object.defineProperty(context,'localStorage',{get(){throw Error('denied');}});Object.defineProperty(context,'sessionStorage',{get(){throw Error('denied');}});}else{context.localStorage=local;context.sessionStorage=session;}
+  if(blocked===true)Object.defineProperty(context,'localStorage',{get(){throw Error('denied');}});else context.localStorage=local;
+  if(blocked)Object.defineProperty(context,'sessionStorage',{get(){throw Error('denied');}});else context.sessionStorage=session;
   vm.createContext(context);vm.runInContext(source,context);
   const tick=()=>new Promise(resolve=>setImmediate(resolve));
   const respond=value=>{const callback=new URL(scripts.at(-1).src).searchParams.get('jsonpCallback');context[callback](value);return tick();};
@@ -69,4 +70,16 @@ test('old provider cache is never added to new provider results',async()=>{
   const h=harness({session:storage({'determine-visit-session-v3':JSON.stringify({data:{busuanzi_site_pv:1000,busuanzi_site_uv:1000}})})});
   await h.respond({site_pv:26,site_uv:24});
   assert.equal(h.elements.busuanzi_value_site_pv.textContent,'26');
+});
+
+test('opt out is still honoured when only session storage is blocked',()=>{
+  const h=harness({blocked:'session',local:storage({'determine-stats-excluded':'1'})});
+  assert.equal(h.scripts.length,0);
+});
+
+test('opting out during an in-flight request keeps the opt-out status',async()=>{
+  const h=harness();h.elements['stats-exclude'].checked=true;
+  h.elements['stats-exclude'].handlers.change();h.scripts[0].onerror();await h.tick();
+  assert.equal(h.elements['visit-note'].textContent,'本浏览器不参与统计');
+  assert.ok(h.elements['stats-retry'].disabled);
 });
