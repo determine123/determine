@@ -9,15 +9,15 @@ const lastKey='determine-visit-last-ibruce-v1';
 function storage(initial={}){const values=new Map(Object.entries(initial));return {getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)};}
 function harness({session=storage(),local=storage(),blocked=false}={}){
   const elements=Object.fromEntries(['visit-note','busuanzi_value_site_pv','busuanzi_value_site_uv','stats-exclude','stats-retry'].map(id=>[id,{textContent:'—',handlers:{},addEventListener(name,fn){this.handlers[name]=fn;}}]));
-  const scripts=[],timers=new Map();let id=0;
-  const context={document:{getElementById:key=>elements[key],createElement:()=>({remove(){this.removed=true;}}),head:{appendChild:script=>scripts.push(script)}},setTimeout:fn=>{timers.set(++id,fn);return id;},clearTimeout:key=>timers.delete(key)};
+  const scripts=[],timers=new Map(),reading=[],events={};let id=0;
+  const context={document:{getElementById:key=>elements[key],querySelectorAll:()=>reading,addEventListener:(name,fn)=>events[name]=fn,createElement:()=>({remove(){this.removed=true;}}),head:{appendChild:script=>scripts.push(script)}},setTimeout:fn=>{timers.set(++id,fn);return id;},clearTimeout:key=>timers.delete(key)};
   context.window=context;
   if(blocked===true)Object.defineProperty(context,'localStorage',{get(){throw Error('denied');}});else context.localStorage=local;
   if(blocked)Object.defineProperty(context,'sessionStorage',{get(){throw Error('denied');}});else context.sessionStorage=session;
   vm.createContext(context);vm.runInContext(source,context);
   const tick=()=>new Promise(resolve=>setImmediate(resolve));
   const respond=value=>{const callback=new URL(scripts.at(-1).src).searchParams.get('jsonpCallback');context[callback](value);return tick();};
-  return {elements,scripts,timers,session,local,context,tick,respond};
+  return {elements,scripts,timers,session,local,context,tick,respond,reading,events};
 }
 
 test('live counters display, persist, and do not count again on refresh',async()=>{
@@ -82,4 +82,12 @@ test('opting out during an in-flight request keeps the opt-out status',async()=>
   h.elements['stats-exclude'].handlers.change();h.scripts[0].onerror();await h.tick();
   assert.equal(h.elements['visit-note'].textContent,'本浏览器不参与统计');
   assert.ok(h.elements['stats-retry'].disabled);
+});
+
+test('home reading matches footer PV including client-side return navigation',async()=>{
+  const h=harness();const first={textContent:'—'};h.reading.push(first);
+  await h.respond({site_pv:42,site_uv:26});
+  assert.equal(first.textContent,h.elements.busuanzi_value_site_pv.textContent);
+  h.reading.splice(0,1,{textContent:'—'});h.events['site:page']();
+  assert.equal(h.reading[0].textContent,'42');assert.equal(h.scripts.length,1);
 });

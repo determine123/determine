@@ -35,7 +35,7 @@ jobs:
       - name: Verify project directory sync
         run: python3 -m unittest discover -s tests -p "test_sync_projects.py" -v
       - name: Verify visit statistics
-        run: node --test tests/test_visit_stats.cjs
+        run: node --test tests/test_visit_stats.cjs tests/test_site_statistics.cjs
       - name: Generate site timestamps
         run: python3 .github/scripts/site_status.py
       - name: Build with Jekyll

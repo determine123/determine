@@ -3,7 +3,7 @@
   const note=document.getElementById('visit-note'),pv=document.getElementById('busuanzi_value_site_pv'),uv=document.getElementById('busuanzi_value_site_uv'),exclude=document.getElementById('stats-exclude'),retry=document.getElementById('stats-retry');
   if(!note||!pv||!uv)return;
   const sessionKey='determine-visit-session-ibruce-v1',lastKey='determine-visit-last-ibruce-v1',opt='determine-stats-excluded';
-  let busy=false,disabled=false;
+  let busy=false,disabled=false,latest=null;
   function read(storage,key){try{return JSON.parse(storage.getItem(key));}catch{return null;}}
   function save(storage,key,value){try{storage.setItem(key,JSON.stringify(value));}catch{}}
   let session,local;
@@ -14,7 +14,14 @@
     const views=number(value?.site_pv),visitors=number(value?.site_uv);
     return Number.isSafeInteger(views)&&views>=0&&Number.isSafeInteger(visitors)&&visitors>=0?{site_pv:views,site_uv:visitors}:null;
   }
-  function render(value){const d=data(value);if(!d)return false;pv.textContent=d.site_pv.toLocaleString('zh-CN');uv.textContent=d.site_uv.toLocaleString('zh-CN');return true;}
+  function homeReading(){
+    if(!latest)return;
+    for(const element of document.querySelectorAll('[data-stat-reading]')){
+      element.textContent=latest.site_pv.toLocaleString('zh-CN');
+      element.title='iBruce 累计访问记录（PV）：'+latest.site_pv+' 次；缓存与获取状态见页脚';
+    }
+  }
+  function render(value){const d=data(value);if(!d)return false;latest=d;pv.textContent=d.site_pv.toLocaleString('zh-CN');uv.textContent=d.site_uv.toLocaleString('zh-CN');homeReading();return true;}
   function controls(){if(retry)retry.disabled=busy||disabled;}
   function request(){
     return new Promise((resolve,reject)=>{
@@ -54,6 +61,7 @@
   }
   if(exclude){exclude.checked=disabled;exclude.addEventListener('change',()=>{disabled=exclude.checked;try{local.setItem(opt,disabled?'1':'0');}catch{}load();});}
   if(retry)retry.addEventListener('click',()=>load(true));
+  document.addEventListener('site:page',homeReading);
   render(read(session,sessionKey)?.data)||render(read(local,lastKey)?.data);
   load();
 })();

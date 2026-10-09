@@ -1,12 +1,11 @@
-{% assign totals = site.data.site_statistics %}
-<section class="card site-statistics" aria-label="博客历史累计统计">
-  <div class="card-label"><h2>博客一览 / STATS</h2><span>历史累计</span></div>
+<section class="card site-statistics" aria-label="博客实际统计" data-stat-comment-server="{{ site.comments.server_url | escape }}">
+  <div class="card-label"><h2>博客一览 / STATS</h2><span>实际统计</span></div>
   <div class="history-counts">
-    <a href="{{ '/essays/' | relative_url }}" aria-label="随笔，历史累计 {{ totals.essays }} 篇"><strong>{{ totals.essays }}</strong><span>随笔</span></a>
-    <a href="{{ '/archive/' | relative_url }}" aria-label="文章，历史累计 {{ totals.articles }} 篇"><strong>{{ totals.articles }}</strong><span>文章</span></a>
-    <a href="{{ '/guestbook/' | relative_url }}" aria-label="评论，历史累计 {{ totals.comments }} 条"><strong>{{ totals.comments }}</strong><span>评论</span></a>
-    <a href="{{ '/colophon/' | relative_url }}" aria-label="阅读，历史累计 {{ totals.reads }} 次，查看统计说明"><strong>{{ totals.reads | divided_by: 10000 }}<small>万</small></strong><span>阅读</span></a>
+    <a href="{{ '/essays/' | relative_url }}" aria-label="已发布随笔 {{ site.essays.size }} 篇"><strong>{{ site.essays.size }}</strong><span>随笔</span></a>
+    <a href="{{ '/archive/' | relative_url }}" aria-label="已发布文章 {{ site.posts.size }} 篇"><strong>{{ site.posts.size }}</strong><span>文章</span></a>
+    <a href="{{ '/guestbook/' | relative_url }}" aria-label="查看评论交流"><strong data-stat-comments aria-live="polite" title="正在查询 Waline 全站评论数">—</strong><span>评论</span></a>
+    <a href="{{ '/colophon/' | relative_url }}" aria-label="查看阅读统计说明"><strong data-stat-reading aria-live="polite" title="等待 iBruce 实际 PV；获取状态见页脚">—</strong><span>阅读</span></a>
   </div>
-  <p class="history-counts-note">{{ totals.updated | date: '%Y.%m.%d' }} · 历史数据由作者提供</p>
+  <p class="history-counts-note">随笔与文章：已发布数量<br>评论：Waline 全站计数 · 阅读：iBruce PV<br><span data-stat-comment-status role="status">评论统计正在加载…</span></p>
   <div class="history-counts-links"><a href="{{ '/feed.xml' | relative_url }}">RSS 订阅 ↗</a><a href="{{ '/sitemap.xml' | relative_url }}">站点地图 ↗</a></div>
 </section>
