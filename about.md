@@ -21,7 +21,7 @@ permalink: /about/
 <figcaption>Shanghai, China<br><a href="mailto:determine@sjtu.edu.cn">determine@sjtu.edu.cn</a></figcaption>
 </figure>
 </section>
-<nav class="about-sections" aria-label="关于页目录"><a href="#interests">关注方向</a><a href="#selected-projects">精选项目</a><a href="#education">教育背景</a><a href="#contributions">开源贡献</a></nav>
+<nav class="about-sections" aria-label="关于页目录"><a href="#interests">关注方向</a><a href="#selected-projects">精选项目</a><a href="#education">教育背景</a><a href="#github-activity">贡献日历</a><a href="#contributions">开源贡献</a></nav>
 
 <section class="about-section" id="interests"><h2>Interests <span>关注方向</span></h2>
 <dl class="about-interest-grid"><div><dt>Agent Engineering</dt><dd>工具调用、RAG、记忆与工作流编排，以及可追踪的评估过程。</dd></div><div><dt>AI Infrastructure</dt><dd>推理效率、Triton 算子、跨后端实验与可复现的性能记录。</dd></div><div><dt>Embodied Intelligence</dt><dd>强化学习、仿真，以及智能系统的决策与控制。</dd></div></dl></section>
@@ -34,6 +34,18 @@ permalink: /about/
 <p><a href="{{ '/projects/' | relative_url }}">查看完整项目目录 →</a></p></section>
 
 <section class="about-section" id="education"><h2>Education <span>教育背景</span></h2><div class="about-education"><div><h3>上海交通大学</h3><p>机械 · 硕士在读</p></div><div><h3>成都理工大学</h3><p>人工智能 · 本科</p></div></div></section>
+
+<section class="about-section" id="github-activity" aria-labelledby="github-activity-title">
+<div class="about-activity-heading"><h2 id="github-activity-title">GitHub Activity <span>贡献日历</span></h2><a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer">查看 GitHub 主页 ↗</a></div>
+<div class="about-activity-card">
+<div class="about-activity-copy"><strong>代码贡献，按日积累</strong><p>这张动态贡献蛇图读取 determine123 的公开 GitHub 贡献日历，每天自动更新。贡献归属与统计以 GitHub 个人主页为准。</p></div>
+<div class="about-snake-picture">
+<img class="about-snake about-snake-light" src="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake.svg" alt="determine123 的 GitHub 贡献日历蛇图（浅色主题）" width="900" height="140" loading="lazy" decoding="async">
+<img class="about-snake about-snake-dark" src="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake-dark.svg" alt="determine123 的 GitHub 贡献日历蛇图（深色主题）" width="900" height="140" loading="lazy" decoding="async">
+</div>
+<noscript><p><a href="https://github.com/determine123">打开 determine123 的 GitHub 个人主页查看完整贡献记录 ↗</a></p></noscript>
+</div>
+</section>
 
 <section class="about-section" id="contributions"><h2>Open Source <span>开源贡献</span></h2><ul class="about-contributions"><li><a href="https://github.com/caomaolufei/AIInfraGuide/pull/46">AIInfraGuide · PR #46</a><small>贡献详情与讨论</small></li><li><a href="https://github.com/bojieli/ai-infra-book/pull/3">ai-infra-book · PR #3</a><small>贡献详情与讨论</small></li><li><a href="https://github.com/adongwanai/AgentGuide/pull/167">AgentGuide · PR #167</a><small>贡献详情与讨论</small></li></ul></section>
 
