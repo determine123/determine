@@ -14,8 +14,8 @@
     canvas.width=Math.round(width*scale);canvas.height=Math.round(height*scale);
     canvas.style.width=width+'px';canvas.style.height=height+'px';
     ctx.setTransform(scale,0,0,scale,0,0);
-    const count=Math.min(width<600?34:72,Math.max(24,Math.round(width*height/(width<600?22000:19000))));
-    stars=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(.35,1.35),phase:random(0,Math.PI*2),speed:random(.00045,.0013),drift:random(-.08,.08),warm:Math.random()<.16}));
+    const count=Math.min(width<600?78:150,Math.max(48,Math.round(width*height/(width<600?8500:10500))));
+    stars=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(.45,1.55),phase:random(0,Math.PI*2),speed:random(.00045,.0013),drift:random(-.08,.08),warm:Math.random()<.2}));
     draw(performance.now());
   }
   function draw(now){
@@ -24,14 +24,14 @@
     const parallaxX=pointer.active?(pointer.x/width-.5)*5:0;
     const parallaxY=pointer.active?(pointer.y/height-.5)*4:0;
     for(const star of stars){
-      const alpha=reduceMotion.matches ? .72 :(.38+.52*(.5+.5*Math.sin(now*star.speed+star.phase)));
+      const alpha=reduceMotion.matches ? .94 :(.58+.4*(.5+.5*Math.sin(now*star.speed+star.phase)));
       const x=star.x+parallaxX+Math.sin(now*.00012+star.phase)*star.drift*6;
       const y=star.y+parallaxY+Math.cos(now*.00011+star.phase)*star.drift*5;
       ctx.beginPath();ctx.fillStyle=star.warm?(night?`rgba(246,199,143,${alpha})`:`rgba(142,112,77,${alpha*.65})`):(night?`rgba(177,220,239,${alpha})`:`rgba(79,130,155,${alpha*.64})`);
       ctx.arc(x,y,star.r,0,Math.PI*2);ctx.fill();
       if(pointer.active){
         const dx=pointer.x-x,dy=pointer.y-y,distance=Math.hypot(dx,dy);
-        if(distance<122){ctx.beginPath();ctx.strokeStyle=night?`rgba(120,202,224,${(1-distance/122)*.13})`:`rgba(34,120,145,${(1-distance/122)*.12})`;ctx.lineWidth=.65;ctx.moveTo(x,y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke()}
+        if(distance<142){ctx.beginPath();ctx.strokeStyle=night?`rgba(120,202,224,${(1-distance/142)*.22})`:`rgba(91,188,214,${(1-distance/142)*.19})`;ctx.lineWidth=.8;ctx.moveTo(x,y);ctx.lineTo(pointer.x,pointer.y);ctx.stroke()}
       }
     }
     if(pointer.active){
