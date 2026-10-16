@@ -1,12 +1,30 @@
 ---
 layout: personal
 ---
-<section class="intro home-intro">
-  <p class="eyebrow">DETERMINE / NOTES & PROJECTS</p>
-  <h1><span id="greeting">你好，欢迎来访。</span><br>我在这里做<em>可验证的</em>工程记录。</h1>
-  <p class="lede">围绕 Agent 开发、AI Infra、具身智能与机器人控制，记录设计、实验与真实的工程实践，也留下学习与生活的片段。</p>
-  <div class="home-actions"><a href="{{ '/moments/' | relative_url }}">生活瞬间 ↗</a><a href="{{ '/projects/' | relative_url }}">浏览项目 ↗</a><a href="{{ '/archive/' | relative_url }}">阅读文章 →</a><button type="button" id="random-read">随机发现一篇 ⤨</button></div><div id="random-reading" class="random-reading" hidden aria-live="polite"></div>
-<nav class="ticker" aria-label="最新写作"><ol>{% for post in site.posts limit:5 %}<li><a href="{{ post.url | relative_url }}"><code>0{{ forloop.index }}</code><span>{{ post.title | escape }}</span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time></a></li>{% endfor %}</ol></nav>
+<section class="intro home-intro home-portal" aria-labelledby="home-portal-title">
+  <div class="portal-copy">
+    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span><span id="greeting">时空坐标已载入</span> / PERSONAL SPACE-TIME LOG</p>
+    <h1 id="home-portal-title">从成都出发，<br>继续穿越<em>技术边界</em>。</h1>
+    <p class="lede">成都理工人工智能本科，上海交通大学机械硕士在读。主攻 LLM Agent、AI Infra 与具身智能，把项目实战、论文复现和沿途生活写进这本持续更新的航行日志。</p>
+    <div class="home-actions portal-actions"><a class="portal-primary" href="{{ '/projects/' | relative_url }}">进入项目坐标 ↗</a><a class="portal-secondary" href="{{ '/timeline/' | relative_url }}">沿时间线继续 →</a><button type="button" id="random-read">随机跃迁 ⤨</button></div><div id="random-reading" class="random-reading" hidden aria-live="polite"></div>
+    <div class="portal-quicklinks"><a href="{{ '/moments/' | relative_url }}">生活瞬间</a><span aria-hidden="true">/</span><a href="{{ '/archive/' | relative_url }}">工程文章</a><span aria-hidden="true">/</span><a href="{{ '/learning/' | relative_url }}">学习记录</a></div>
+  </div>
+  <aside class="portal-console" aria-label="个人时空坐标">
+    <div class="portal-orbit" aria-hidden="true"><span class="orbit-core"></span><span class="orbit-satellite satellite-one"></span><span class="orbit-satellite satellite-two"></span><span class="orbit-streak streak-one"></span><span class="orbit-streak streak-two"></span></div>
+    <div class="journey-ticket">
+      <div class="ticket-head"><span>FIELD NOTES</span><span>01 / NOW</span></div>
+      <div class="journey-route">
+        <div class="route-stop"><span class="route-index">01 · ORIGIN</span><strong>成都</strong><small>CDUT · 人工智能</small></div>
+        <span class="route-connector" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div class="route-stop current"><span class="route-index">02 · PRESENT</span><strong>上海</strong><small>SJTU · 机械硕士</small></div>
+        <span class="route-connector future" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div class="route-stop next"><span class="route-index">03 · NEXT</span><strong>更远处</strong><small>Agent × AI Infra</small></div>
+      </div>
+      <a class="ticket-link" href="{{ '/footprints/' | relative_url }}">打开城市足迹与旅程 <span aria-hidden="true">↗</span></a>
+      <span class="ticket-corner" aria-hidden="true">DTM—∞</span>
+    </div>
+  </aside>
+  <nav class="ticker" aria-label="最新写作"><ol>{% for post in site.posts limit:5 %}<li><a href="{{ post.url | relative_url }}"><code>0{{ forloop.index }}</code><span>{{ post.title | escape }}</span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time></a></li>{% endfor %}</ol></nav>
 </section>
 <nav class="discovery-paths" aria-label="阅读入口"><a href="{{ '/archive/' | relative_url }}"><span>01 / 工程</span><strong>从一次实践开始</strong><small>项目设计、实验条件与复盘</small></a><a href="{{ '/essays/' | relative_url }}"><span>02 / 生活</span><strong>翻开一段时间</strong><small>按年份整理的经历与感悟</small></a><a href="{{ '/learning/' | relative_url }}"><span>03 / 学习</span><strong>沿着问题深入</strong><small>阅读、面试讨论与建议实验</small></a></nav>
 <main class="home-layout">
