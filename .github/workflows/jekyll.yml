@@ -73,5 +73,8 @@ jobs:
           html = Path('/tmp/blog-home.html').read_text(encoding='utf-8')
           assert 'id="page-content"' in html, 'Published homepage is missing the blog layout'
           assert 'id="global-music"' in html, 'Published homepage is missing the music player'
+          assert 'id="space-cosmos"' in html, 'Published homepage is missing the interactive space background'
+          assert '/css/space-time.css' in html, 'Published homepage is missing the shared space-time stylesheet'
+          assert '/js/space-time.js' in html, 'Published homepage is missing the space-time interaction script'
           print('Published blog responds successfully with its current layout and music player.')
           PY
