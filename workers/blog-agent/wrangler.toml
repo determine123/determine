@@ -1,0 +1,8 @@
+name = "determine-blog-agent"
+main = "src/index.js"
+compatibility_date = "2026-10-16"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGIN = "https://determine123.github.io"
+

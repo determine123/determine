@@ -7,6 +7,7 @@
   const messages=document.getElementById('blog-agent-messages');
   const suggestions=document.getElementById('blog-agent-suggestions');
   const status=document.getElementById('blog-agent-status');
+  const privacy=document.getElementById('blog-agent-privacy');
   if(!configNode||!launcher||!dialog||!query||!form||!messages||!suggestions)return;
 
   let config={};
@@ -17,6 +18,10 @@
   if(title&&config.title)title.textContent=config.title;
   if(overline&&config.name)overline.textContent=`${config.owner||'DETERMINE'} · ${config.name}`;
   if(intro&&config.description)intro.textContent=config.description;
+  if(config.endpoint){
+    if(status)status.textContent=`${config.model||'AI'} · 在线对话`;
+    if(privacy)privacy.textContent=`在线模式 · 问题会发送至智谱 AI（${config.model||'GLM Flash'}）处理；请勿输入隐私信息`;
+  }
   const index=[...document.querySelectorAll('#search-index a')];
   const byPath=fragment=>index.find(link=>new URL(link.href).pathname.includes(fragment));
   const destinations={
@@ -64,6 +69,15 @@
     if(results.length)return {text:'我从博客公开索引里找到这些相关入口，可以点开继续看：',links:results};
     return {text:'这条博客目前没有足够的公开资料让我可靠回答。我可以带你浏览项目、学习记录、个人介绍，或城市足迹；你也可以用右下角搜索框找文章。',links:selectedRoutes(['projects','learning','about','footprints','archive'])};
   }
+  async function askModel(text,history){
+    const context=scoreMatches(text).slice(0,8).map(({link})=>({title:link.textContent.trim(),url:link.href}));
+    const response=await fetch(config.endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({message:text,context,history}),signal:AbortSignal.timeout(30_000),credentials:'omit',referrerPolicy:'no-referrer'});
+    let data;
+    try{data=await response.json()}catch{throw new Error('模型服务返回了无法读取的响应。')}
+    if(!response.ok)throw new Error(data.error||'模型服务暂时不可用。');
+    if(typeof data.answer!=='string'||!data.answer.trim())throw new Error('模型没有返回有效回答。');
+    return {text:data.answer.trim(),links:context.map(item=>({href:item.url,label:item.title}))};
+  }
   function open(){if(!dialog.open)dialog.showModal();query.focus()}
   launcher.addEventListener('click',open);
   document.getElementById('blog-agent-inline')?.addEventListener('click',open);
@@ -74,10 +88,19 @@
     const button=document.createElement('button');button.type='button';button.className='agent-suggestion';button.textContent=prompt;
     button.addEventListener('click',()=>{query.value=prompt;form.requestSubmit()});suggestions.append(button);
   }
-  form.addEventListener('submit',event=>{
+  form.addEventListener('submit',async event=>{
     event.preventDefault();const text=query.value.trim();if(!text)return;
+    const history=[...messages.querySelectorAll('.agent-message')].map(item=>({role:item.classList.contains('agent-message-user')?'user':'assistant',content:item.querySelector('p')?.textContent||''})).filter(item=>item.content.trim()).slice(-8);
     addMessage(text,'user');query.value='';
+    const submit=form.querySelector('button[type="submit"]');submit.disabled=true;
+    if(config.endpoint){
+      status.textContent='正在连接模型…';
+      try{const response=await askModel(text,history);addMessage(response.text,'bot',response.links);status.textContent=`${config.model||'AI'} · 已回复`}
+      catch(error){addMessage(`${error.message} 我先用博客本地索引帮你找相关页面。`,'bot');const fallback=respond(text);addMessage(fallback.text,'bot',fallback.links);status.textContent='模型暂不可用 · 已切换本地导航'}
+      finally{submit.disabled=false;query.focus()}
+      return;
+    }
     const response=respond(text);addMessage(response.text,'bot',response.links);
-    status.textContent='本地检索完成 · 输入不会发送到服务器';
+    status.textContent='本地检索完成 · 输入不会发送到服务器';submit.disabled=false;
   });
 })();
