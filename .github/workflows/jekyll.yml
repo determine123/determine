@@ -76,5 +76,9 @@ jobs:
           assert 'id="space-cosmos"' in html, 'Published homepage is missing the interactive space background'
           assert '/css/space-time.css' in html, 'Published homepage is missing the shared space-time stylesheet'
           assert '/js/space-time.js' in html, 'Published homepage is missing the space-time interaction script'
-          print('Published blog responds successfully with its current layout and music player.')
+          assert '/js/blog-agent.js' in html, 'Published homepage is missing the blog Agent script'
+          assert 'id="blog-agent-open"' in html, 'Published homepage is missing the global Agent launcher'
+          assert 'id="blog-agent-dialog"' in html, 'Published homepage is missing the Agent dialog'
+          assert 'id="blog-agent-inline"' in html, 'Published homepage is missing the interactive homepage Agent entry'
+          print('Published blog responds successfully with its current layout, music player, and local blog Agent.')
           PY

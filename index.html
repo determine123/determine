@@ -6,7 +6,7 @@ layout: personal
     <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span><span id="greeting">时空坐标已载入</span> / INTERSTELLAR FIELD NOTES</p>
     <h1 id="home-portal-title">从成都出发，<br>向未知处<em>持续航行</em>。</h1>
     <p class="lede">成都理工人工智能本科，上海交通大学机械硕士在读。以工程实践为坐标，探索 LLM Agent、AI Infra 与具身智能；也记录路途、选择，以及每次抵达之后的新起点。</p>
-    <div class="home-actions portal-actions"><a class="portal-primary" href="{{ '/projects/' | relative_url }}">进入项目坐标 ↗</a><a class="portal-secondary" href="{{ '/timeline/' | relative_url }}">沿时间线继续 →</a><button type="button" id="random-read">随机跃迁 ⤨</button></div><div id="random-reading" class="random-reading" hidden aria-live="polite"></div>
+    <div class="home-actions portal-actions"><a class="portal-primary" href="{{ '/projects/' | relative_url }}">进入项目坐标 ↗</a><a class="portal-secondary" href="{{ '/timeline/' | relative_url }}">沿时间线继续 →</a><button type="button" id="random-read">随机跃迁 ⤨</button><button type="button" class="portal-agent-button" id="blog-agent-inline">✦ 呼叫我的博客 Agent</button></div><div id="random-reading" class="random-reading" hidden aria-live="polite"></div>
     <div class="portal-quicklinks"><a href="{{ '/moments/' | relative_url }}">生活瞬间</a><span aria-hidden="true">/</span><a href="{{ '/archive/' | relative_url }}">工程文章</a><span aria-hidden="true">/</span><a href="{{ '/learning/' | relative_url }}">学习记录</a></div>
   </div>
   <aside class="portal-console" aria-label="个人时空坐标">
@@ -14,11 +14,11 @@ layout: personal
     <div class="journey-ticket">
       <div class="ticket-head"><span>MISSION LOG · 001</span><span>EARTH / PRESENT</span></div>
       <div class="journey-route">
-        <div class="route-stop"><span class="route-index">01 · ORIGIN</span><strong>成都</strong><small>CDUT · 人工智能</small></div>
+        <a class="route-stop" href="{{ '/undergraduate/' | relative_url }}" aria-label="进入成都理工本科记录"><span class="route-index">01 · ORIGIN ↗</span><strong>成都</strong><small>CDUT · 人工智能</small></a>
         <span class="route-connector" aria-hidden="true"><i></i><i></i><i></i></span>
-        <div class="route-stop current"><span class="route-index">02 · PRESENT</span><strong>上海</strong><small>SJTU · 机械硕士</small></div>
+        <a class="route-stop current" href="{{ '/graduate/' | relative_url }}" aria-label="进入上海交通大学硕士记录"><span class="route-index">02 · PRESENT ↗</span><strong>上海</strong><small>SJTU · 机械硕士</small></a>
         <span class="route-connector future" aria-hidden="true"><i></i><i></i><i></i></span>
-        <div class="route-stop next"><span class="route-index">03 · NEXT</span><strong>更远处</strong><small>Agent × AI Infra</small></div>
+        <a class="route-stop next" href="{{ '/projects/' | relative_url }}" aria-label="进入 Agent 与 AI Infra 项目"><span class="route-index">03 · NEXT ↗</span><strong>更远处</strong><small>Agent × AI Infra</small></a>
       </div>
       <a class="ticket-link" href="{{ '/footprints/' | relative_url }}">打开城市足迹与旅程 <span aria-hidden="true">↗</span></a>
       <span class="ticket-corner" aria-hidden="true">DTM—∞</span>

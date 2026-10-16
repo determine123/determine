@@ -1,0 +1,24 @@
+<script id="blog-agent-config" type="application/json">{{ site.data.blog_agent | jsonify }}</script>
+<button class="space-agent-launcher" id="blog-agent-open" type="button" aria-haspopup="dialog" aria-controls="blog-agent-dialog">
+  <span class="space-agent-star" aria-hidden="true">✦</span><span class="space-agent-label">问问博客 Agent</span><span class="space-agent-signal" aria-hidden="true"></span>
+</button>
+<dialog class="space-agent-dialog" id="blog-agent-dialog" aria-labelledby="blog-agent-title">
+  <section class="agent-shell">
+    <header class="agent-head">
+      <span class="agent-emblem" aria-hidden="true">✦</span>
+      <div class="agent-heading"><span class="agent-overline">DETERMINE · NAVIGATOR</span><h2 id="blog-agent-title">个人博客 Agent</h2><p id="blog-agent-status">本地导航已就绪</p></div>
+      <button class="agent-close" id="blog-agent-close" type="button" aria-label="关闭博客 Agent">×</button>
+    </header>
+    <div class="agent-intro" id="blog-agent-intro">你好，我是 determine 的博客导航员。告诉我你想看 Agent 项目、学习记录还是城市足迹。</div>
+    <div class="agent-suggestions" id="blog-agent-suggestions" aria-label="推荐问题"></div>
+    <div class="agent-messages" id="blog-agent-messages" role="log" aria-live="polite" aria-relevant="additions text">
+      <article class="agent-message agent-message-bot"><span class="agent-message-mark" aria-hidden="true">✦</span><p>我会从博客公开页面里帮你找入口。可以直接提问，或点上面的推荐坐标。</p></article>
+    </div>
+    <form class="agent-form" id="blog-agent-form">
+      <label class="sr" for="blog-agent-query">向博客 Agent 提问</label>
+      <input id="blog-agent-query" name="query" type="text" maxlength="240" autocomplete="off" placeholder="例如：我做过哪些 Agent 项目？" required>
+      <button type="submit" aria-label="发送问题">发送 <span aria-hidden="true">↗</span></button>
+    </form>
+    <footer class="agent-foot"><span>本地导航模式 · 输入仅在此浏览器处理，不会发送到服务器</span><a href="https://github.com/determine123/react-agent" target="_blank" rel="noopener noreferrer">查看 ReAct Agent 项目 ↗</a></footer>
+  </section>
+</dialog>
