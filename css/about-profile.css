@@ -11,7 +11,7 @@
 @media(max-width:640px){.about-profile{margin:12px 14px;padding:26px 22px}.about-introduction{display:flex;flex-direction:column;gap:18px}.about-portrait{order:-1;align-self:center}.about-portrait img{width:132px;height:132px}.about-portrait figcaption{display:none}.about-profile h1{font-size:36px}.about-interest-grid,.about-education{grid-template-columns:1fr;gap:16px}.about-project{grid-template-columns:72px 1fr;gap:16px}.about-project-mark{font-size:10px;padding:14px 3px}.about-project-mark b{font-size:22px}.about-profile h2{font-size:23px}.about-profile h2 span{display:block;margin:8px 0 0}.about-profile h3{font-size:15px}.about-activity-heading{align-items:flex-start;flex-direction:column;gap:0}.about-activity-card{padding:16px 13px 10px}.about-snake{min-height:52px}.about-contributions small{display:block;margin:4px 0}.about-links{gap:12px}}
 
 /* Reading-first about page aligned with the shared section indexes. */
-.section-surface .about-profile{max-width:860px;margin:64px auto 86px;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+body.section-surface .about-profile{max-width:860px;margin:64px auto 86px;padding:0;color:var(--ink);background:transparent;background-image:none;border:0;border-radius:0;box-shadow:none}
 .section-surface .about-introduction{grid-template-columns:minmax(0,1fr) 156px;gap:56px;padding-bottom:34px;border-bottom:1px solid var(--line)}
 .section-surface .about-profile h1{font-size:clamp(40px,7vw,64px);letter-spacing:-.045em}
 .section-surface .about-portrait img{width:156px;height:156px;border-radius:4px}
