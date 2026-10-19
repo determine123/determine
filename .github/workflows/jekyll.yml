@@ -84,7 +84,10 @@ jobs:
           assert 'id="blog-agent-open"' in html, 'Published homepage is missing the global Agent launcher'
           assert 'id="blog-agent-dialog"' in html, 'Published homepage is missing the Agent dialog'
           assert 'id="blog-agent-inline"' in html, 'Published homepage is missing the interactive homepage Agent entry'
-          assert 'id="selected-projects-title"' in html, 'Published homepage is missing selected projects'
+          assert 'class="profile-home"' in html, 'Published homepage is missing the profile-first layout'
+          assert 'id="home-about-title"' in html, 'Published homepage is missing the profile summary'
+          assert 'id="home-stats-title"' in html, 'Published homepage is missing site statistics'
           assert 'id="latest-writing-title"' in html, 'Published homepage is missing recent writing'
-          print('Published blog responds successfully with the minimal layout, reading entry points, music player, and blog Agent.')
+          assert 'id="home-explore-title"' in html, 'Published homepage is missing topic entry points'
+          print('Published blog responds successfully with the profile-first layout, writing entry points, music player, and blog Agent.')
           PY
