@@ -2,51 +2,76 @@
 layout: personal
 ---
 
-<main class="minimal-home">
-  <section class="minimal-hero" aria-labelledby="home-title">
-    <p class="minimal-kicker">DETERMINE · AGENT ENGINEERING / AI INFRA</p>
-    <h1 id="home-title">你好，我是 determine。</h1>
-    <p class="minimal-intro">上海交通大学硕士在读，成都理工大学本科。关注 LLM Agent、AI Infra 与具身智能，记录项目实战、论文阅读和沿途见闻。</p>
-    <nav class="minimal-actions" aria-label="个人主要链接">
-      <a class="primary" href="{{ '/projects/' | relative_url }}">查看项目</a>
-      <a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a href="mailto:determine@sjtu.edu.cn">Email ↗</a>
-      <button type="button" id="blog-agent-inline">问问博客 Agent</button>
-    </nav>
-  </section>
+{% assign record_count = site.posts.size | plus: site.essays.size | plus: site.learning.size %}
+<main class="profile-home">
+  <header class="profile-identity" aria-labelledby="home-title">
+    <img src="{{ site.sidebar-avatar }}" alt="determine 的头像" width="140" height="140" loading="eager" decoding="async">
+    <div>
+      <p class="profile-kicker">PERSONAL BLOG / ENGINEERING NOTES</p>
+      <h1 id="home-title">determine</h1>
+      <nav class="profile-links" aria-label="个人链接">
+        <span><b aria-hidden="true">⌖</b> 上海</span>
+        <a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer"><b aria-hidden="true">⌘</b> GitHub</a>
+        <a href="mailto:determine@sjtu.edu.cn"><b aria-hidden="true">✉</b> Email</a>
+        <button type="button" id="blog-agent-inline"><b aria-hidden="true">✦</b> Blog Agent</button>
+      </nav>
+    </div>
+  </header>
 
-  <section class="minimal-section" aria-labelledby="selected-projects-title">
-    <header class="minimal-section-head">
-      <div><p>01 / PROJECTS</p><h2 id="selected-projects-title">精选项目</h2></div>
-      <a href="{{ '/projects/' | relative_url }}">完整项目目录 →</a>
-    </header>
-    <div class="minimal-projects">
-      <article><span>AGENT</span><h3><a href="https://github.com/determine123/react-agent">多工具 ReAct Agent ↗</a></h3><p>整合工具调用、RAG、双层记忆与 LangGraph 工作流，并提供 API、界面和容器部署。</p><small>Python · LangGraph · FastAPI</small></article>
-      <article><span>AI INFRA</span><h3><a href="https://github.com/determine123/flagos-s2-track1">DeepSeek-V3 Decode GEMM ↗</a></h3><p>围绕 Triton 算子优化、跨后端适配、正确性验证和可复现实验开展团队实践。</p><small>Triton · PyTorch · Benchmark</small></article>
-      <article><span>WORKFLOW</span><h3><a href="https://github.com/determine123/rd-efficiency-daily-assistant">研发效能日报助手 ↗</a></h3><p>把 Git 提交和 RSS 来源组织成可追溯日报，加入规则校验、LLM 摘要和失败回退。</p><small>Python · FastAPI · LangGraph</small></article>
+  <section class="profile-row profile-about" aria-labelledby="home-about-title">
+    <h2 id="home-about-title">About</h2>
+    <div class="profile-row-body">
+      <p class="profile-role">学生 / Agent Developer</p>
+      <p>上海交通大学硕士在读，成都理工大学本科。关注 LLM Agent、AI Infra 与具身智能，也记录项目实践、论文阅读和沿途见闻。</p>
+      <a class="profile-more" href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">›</span></a>
     </div>
   </section>
 
-  <section class="minimal-section minimal-writing" aria-labelledby="latest-writing-title">
-    <header class="minimal-section-head"><div><p>02 / WRITING</p><h2 id="latest-writing-title">最近写作</h2></div><a href="{{ '/archive/' | relative_url }}">全部 {{ site.posts.size }} 篇 →</a></header>
-    <div class="minimal-list">
-      {% for post in site.posts limit:6 %}
-      <a href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><span><strong>{{ post.title | escape }}</strong><small>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 88 | escape }}</small></span><i aria-hidden="true">↗</i></a>
-      {% endfor %}
+  <section class="profile-row" aria-labelledby="home-education-title">
+    <h2 id="home-education-title">Education</h2>
+    <div class="education-list">
+      <article><h3>上海交通大学</h3><p>硕士在读</p><small>SJTU · PRESENT</small></article>
+      <article><h3>成都理工大学</h3><p>本科</p><small>CDUT · BACHELOR</small></article>
     </div>
   </section>
 
-  <div class="minimal-split">
-    <section class="minimal-section" aria-labelledby="learning-title">
-      <header class="minimal-section-head"><div><p>03 / LEARNING</p><h2 id="learning-title">学习与阅读</h2></div><a href="{{ '/learning/' | relative_url }}">全部 →</a></header>
-      <div class="minimal-compact-list">{% assign readings = site.learning | sort: 'order' %}{% for reading in readings limit:5 %}<a href="{{ reading.url | relative_url }}"><span>{{ reading.kind | default: '笔记' }}</span><strong>{{ reading.title | escape }}</strong></a>{% endfor %}</div>
-    </section>
+  <section class="profile-row" aria-labelledby="home-stats-title">
+    <h2 id="home-stats-title">Statistics</h2>
+    <div class="profile-row-body">
+      <div class="profile-stats">
+        <article><span aria-hidden="true">◷</span><strong data-site-uptime-days data-source="{{ '/site-status.json' | relative_url }}?v={{ site.time | date: '%s' }}">—</strong><small>Days Online</small></article>
+        <article><span aria-hidden="true">□</span><time data-site-updated-date datetime="">{{ site.time | date: '%b %d, %Y' }}</time><small>Last Updated</small></article>
+        <article><span aria-hidden="true">▤</span><strong>{{ record_count }}</strong><small>Public Records</small></article>
+      </div>
+      <div class="profile-total"><span>Total Posts</span><strong>{{ site.posts.size }}</strong></div>
+      <a class="profile-contributions" href="https://github.com/determine123" target="_blank" rel="noopener noreferrer" aria-label="查看 determine123 的 GitHub 贡献记录">
+        <picture>
+          <source srcset="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake-dark.svg" media="(prefers-color-scheme: dark)">
+          <img src="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake.svg" alt="determine123 的 GitHub 贡献日历" width="900" height="140" loading="lazy" decoding="async">
+        </picture>
+        <span>GitHub contribution history</span><span>View profile ↗</span>
+      </a>
+    </div>
+  </section>
 
-    <section class="minimal-section" aria-labelledby="journeys-title">
-      <header class="minimal-section-head"><div><p>04 / JOURNEYS</p><h2 id="journeys-title">城市与旅途</h2></div><a href="{{ '/footprints/' | relative_url }}">地图 →</a></header>
-      <div class="minimal-compact-list"><a href="{{ '/sichuan-tibet-318/' | relative_url }}"><span>2023</span><strong>318 川藏线骑行</strong></a><a href="{{ '/chengdu-xian/' | relative_url }}"><span>2024</span><strong>成都—西安骑行与华山</strong></a><a href="{{ '/hainan-island/' | relative_url }}"><span>2026</span><strong>环海南岛骑行</strong></a><a href="{{ '/footprints/' | relative_url }}"><span>MAP</span><strong>打开全部城市足迹</strong></a></div>
-    </section>
-  </div>
+  <section class="profile-row" aria-labelledby="latest-writing-title">
+    <h2 id="latest-writing-title">Writing</h2>
+    <div class="profile-row-body">
+      <div class="profile-writing-list">
+        {% for post in site.posts limit:5 %}
+        <a href="{{ post.url | relative_url }}"><span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><small>{% if post.tags.first %}{{ post.tags.first }}{% else %}NOTE{% endif %}</small></span><strong>{{ post.title | escape }}</strong><i aria-hidden="true">↗</i></a>
+        {% endfor %}
+      </div>
+      <a class="profile-more" href="{{ '/archive/' | relative_url }}">All writing <span aria-hidden="true">›</span></a>
+    </div>
+  </section>
 
-  <section class="minimal-note" aria-label="博客说明"><p>这里记录正在发生的工程实践，也保留走过的路。内容尽量写清条件、过程和边界。</p><div><a href="{{ '/about/' | relative_url }}">关于我</a><a href="{{ '/timeline/' | relative_url }}">时间归档</a><a href="{{ '/feed.xml' | relative_url }}">RSS</a></div></section>
+  <section class="profile-row" aria-labelledby="home-explore-title">
+    <h2 id="home-explore-title">Explore</h2>
+    <div class="profile-explore">
+      <a href="{{ '/projects/' | relative_url }}"><span>01</span><strong>Projects</strong><small>Agent、AI Infra 与工程实践</small></a>
+      <a href="{{ '/learning/' | relative_url }}"><span>02</span><strong>Learning</strong><small>论文、课程与学习笔记</small></a>
+      <a href="{{ '/footprints/' | relative_url }}"><span>03</span><strong>Journeys</strong><small>城市足迹与长途骑行</small></a>
+    </div>
+  </section>
 </main>

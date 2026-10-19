@@ -17,9 +17,9 @@
 </head>
 <body>
   <header class="top minimal-top">
-    <a class="brand" href="{{ '/' | relative_url }}">determine</a>
-    <nav aria-label="主导航"><a href="{{ '/archive/' | relative_url }}">写作</a><a href="{{ '/learning/' | relative_url }}">学习</a><a href="{{ '/projects/' | relative_url }}">项目</a><a href="{{ '/footprints/' | relative_url }}">足迹</a><a href="{{ '/about/' | relative_url }}">关于</a></nav>
-    <button id="theme-toggle" class="theme-toggle" aria-label="切换显示主题" aria-pressed="false">◐ 主题</button>
+    <a class="brand" href="{{ '/' | relative_url }}">determine's blog</a>
+    <nav aria-label="主导航"><a href="{{ '/archive/' | relative_url }}">写作</a><a href="{{ '/learning/' | relative_url }}">学习</a><a href="{{ '/projects/' | relative_url }}">项目</a><a href="{{ '/footprints/' | relative_url }}">足迹</a><a href="{{ '/links/' | relative_url }}">友链</a><a href="{{ '/about/' | relative_url }}">关于</a></nav>
+    <button id="theme-toggle" class="theme-toggle" aria-label="切换显示主题" aria-pressed="false" title="切换显示主题">◐</button>
   </header>
 
   <div id="page-content" data-base="{{ '/' | relative_url }}" data-version="{{ site.time | date: '%s' }}">{{ content }}</div>
