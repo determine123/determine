@@ -3,6 +3,7 @@ layout: about-profile
 title: 关于 determine
 description: Agent 开发、AI Infra 与智能系统的项目和学习记录。
 permalink: /about/
+body_class: section-surface
 ---
 
 <section class="about-introduction" aria-labelledby="profile-name">

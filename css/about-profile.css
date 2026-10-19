@@ -9,3 +9,25 @@
 @media(max-width:1000px){.about-profile{margin:20px 24px;padding:40px}.about-introduction{grid-template-columns:1fr 180px;gap:30px}.about-portrait img{width:180px;height:180px}}
 @media(max-width:760px){.distribution-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.about-profile{margin:12px 14px;padding:26px 22px}.about-introduction{display:flex;flex-direction:column;gap:18px}.about-portrait{order:-1;align-self:center}.about-portrait img{width:132px;height:132px}.about-portrait figcaption{display:none}.about-profile h1{font-size:36px}.about-interest-grid,.about-education{grid-template-columns:1fr;gap:16px}.about-project{grid-template-columns:72px 1fr;gap:16px}.about-project-mark{font-size:10px;padding:14px 3px}.about-project-mark b{font-size:22px}.about-profile h2{font-size:23px}.about-profile h2 span{display:block;margin:8px 0 0}.about-profile h3{font-size:15px}.about-activity-heading{align-items:flex-start;flex-direction:column;gap:0}.about-activity-card{padding:16px 13px 10px}.about-snake{min-height:52px}.about-contributions small{display:block;margin:4px 0}.about-links{gap:12px}}
+
+/* Reading-first about page aligned with the shared section indexes. */
+.section-surface .about-profile{max-width:860px;margin:64px auto 86px;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.section-surface .about-introduction{grid-template-columns:minmax(0,1fr) 156px;gap:56px;padding-bottom:34px;border-bottom:1px solid var(--line)}
+.section-surface .about-profile h1{font-size:clamp(40px,7vw,64px);letter-spacing:-.045em}
+.section-surface .about-portrait img{width:156px;height:156px;border-radius:4px}
+.section-surface .about-sections{margin-top:0;padding:18px 0;border-top:0;gap:12px 20px;font:10px var(--mono)}
+.section-surface .about-section{padding:38px 0;border-bottom:1px solid var(--line)}
+.section-surface .about-profile h2{font-size:25px}
+.section-surface .about-interest-grid{gap:0;border-top:1px solid var(--line)}
+.section-surface .about-interest-grid>div{padding:18px;border-bottom:1px solid var(--line)}
+.section-surface .about-interest-grid>div+div{border-left:1px solid var(--line)}
+.section-surface .about-project{grid-template-columns:92px minmax(0,1fr);padding:24px 0}
+.section-surface .about-project-mark{padding:0;border:0;background:transparent;text-align:left;color:var(--accent)}
+.section-surface .about-project-mark b{font:18px var(--mono)}
+.section-surface .about-education{gap:0;border-top:1px solid var(--line)}
+.section-surface .about-education>div{padding:18px 0;border-bottom:1px solid var(--line)}
+.section-surface .about-education>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.section-surface .about-activity-card{padding:20px 0;border-width:1px 0;border-radius:0;background:transparent}
+.section-surface .about-closing{margin-top:36px}
+@media(max-width:920px){.section-surface .about-profile{margin:48px 24px 76px}}
+@media(max-width:640px){.section-surface .about-profile{margin:40px 16px 68px;padding:0}.section-surface .about-introduction{display:grid;grid-template-columns:1fr;gap:24px}.section-surface .about-portrait{order:-1;justify-self:start}.section-surface .about-portrait img{width:112px;height:112px}.section-surface .about-interest-grid{grid-template-columns:1fr}.section-surface .about-interest-grid>div{padding:16px 0}.section-surface .about-interest-grid>div+div{border-left:0}.section-surface .about-project{grid-template-columns:68px minmax(0,1fr)}.section-surface .about-education>div+div{padding-left:0;border-left:0}}

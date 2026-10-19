@@ -14,11 +14,12 @@
   <link rel="stylesheet" href="{{ '/css/editorial.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="{{ '/css/space-time.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <link rel="stylesheet" href="{{ '/css/minimal.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="{{ '/css/section-pages.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
-<body>
+<body class="{{ page.body_class | default: '' }}">
   <header class="top minimal-top">
-    <a class="brand" href="{{ '/' | relative_url }}">determine's blog</a>
-    <nav aria-label="主导航"><a href="{{ '/archive/' | relative_url }}">写作</a><a href="{{ '/learning/' | relative_url }}">学习</a><a href="{{ '/projects/' | relative_url }}">项目</a><a href="{{ '/footprints/' | relative_url }}">足迹</a><a href="{{ '/links/' | relative_url }}">友链</a><a href="{{ '/about/' | relative_url }}">关于</a></nav>
+    <a class="brand" href="{{ '/' | relative_url }}"><span>determine</span><small>notes &amp; projects</small></a>
+    <nav aria-label="主导航"><a{% if page.url == '/archive/' or page.layout == 'post' %} class="is-active" aria-current="page"{% endif %} href="{{ '/archive/' | relative_url }}">写作</a><a{% if page.url contains '/learning/' %} class="is-active" aria-current="page"{% endif %} href="{{ '/learning/' | relative_url }}">学习</a><a{% if page.url == '/projects/' %} class="is-active" aria-current="page"{% endif %} href="{{ '/projects/' | relative_url }}">项目</a><a{% if page.url == '/footprints/' or page.url contains '/sichuan-tibet-318/' or page.url contains '/hainan-island/' or page.url contains '/chengdu-xian/' %} class="is-active" aria-current="page"{% endif %} href="{{ '/footprints/' | relative_url }}">足迹</a><a{% if page.url == '/links/' %} class="is-active" aria-current="page"{% endif %} href="{{ '/links/' | relative_url }}">友链</a><a{% if page.url == '/about/' %} class="is-active" aria-current="page"{% endif %} href="{{ '/about/' | relative_url }}">关于</a></nav>
     <button id="theme-toggle" class="theme-toggle" aria-label="切换显示主题" aria-pressed="false" title="切换显示主题">◐</button>
   </header>
 

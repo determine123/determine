@@ -2,5 +2,10 @@
 layout: personal
 title: 写作
 permalink: /archive/
+body_class: section-surface
 ---
-<main class="page-wrap"><a class="back" href="{{ '/' | relative_url }}">← 首页</a><section class="paper"><p class="article-kicker">WRITING / {{ site.posts.size }} POSTS</p><h1>写作与技术笔记</h1><p class="muted article-subtitle">记录项目设计、学习过程、实验条件和工程复盘。</p><div class="filters"><button class="filter active" data-tag="all" aria-pressed="true">全部</button>{% for tag in site.tags %}<button class="filter" data-tag="{{ tag[0] | escape }}" aria-pressed="false">{{ tag[0] }}</button>{% endfor %}</div>{% for post in site.posts %}<a class="archive-row" data-tags="{{ post.tags | join: '|' | escape }}" href="{{ post.url | relative_url }}"><span>{{ post.title }}</span><time>{{ post.date | date: '%Y.%m.%d' }}</time></a>{% endfor %}</section></main>
+<main class="section-page">
+<header class="section-hero"><p class="section-kicker">BLOG / WRITING</p><h1>写作</h1><p class="section-summary">记录 Agent、AI Infra 与工程实践，也写下实验复盘、阅读所得和生活观察。</p><div class="section-meta"><span>{{ site.posts.size }} 篇文章</span><a href="{{ '/timeline/' | relative_url }}">按年份浏览 →</a><a href="{{ '/feed.xml' | relative_url }}">RSS 订阅 →</a></div></header>
+<nav class="section-toc" aria-label="写作分类"><span>主题</span><div class="filters"><button class="filter active" data-tag="all" aria-pressed="true">全部</button>{% for tag in site.tags %}<button class="filter" data-tag="{{ tag[0] | escape }}" aria-pressed="false">{{ tag[0] }}</button>{% endfor %}</div></nav>
+<section class="section-block" aria-labelledby="writing-list-title"><div class="section-heading"><h2 id="writing-list-title">全部文章</h2><span>按发布时间倒序</span></div><div class="section-list">{% for post in site.posts %}<a class="archive-row section-entry" data-tags="{{ post.tags | join: '|' | escape }}" href="{{ post.url | relative_url }}"><time>{{ post.date | date: '%Y.%m.%d' }}</time><span><strong>{{ post.title }}</strong>{% if post.description %}<small>{{ post.description | strip_html | truncate: 92 }}</small>{% elsif post.excerpt %}<small>{{ post.excerpt | strip_html | truncate: 92 }}</small>{% endif %}</span><b aria-hidden="true">↗</b></a>{% endfor %}</div></section>
+</main>
