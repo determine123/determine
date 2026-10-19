@@ -37,7 +37,7 @@
     {match:/旅行|城市|足迹|地图|去过|旅程/,text:'可以先看城市足迹总览，再沿不同旅程继续探索。',links:['footprints','318','hainan','xian']},
     {match:/学习|论文|阅读|面试|课程|知识/,text:'学习模块整理了 AI、Agent 与工程实践相关的阅读和笔记。',links:['learning','archive']},
     {match:/项目|agent|大模型|人工智能|ai\s*infra|基础设施|机器人|具身|代码|github/i,text:'可以从项目目录进入 Agent、AI Infra 和机器人方向的实践记录。',links:['projects','archive']},
-    {match:/关于|介绍|背景|学校|交大|sjtu|cdut|经历|你是谁|determine/i,text:'determine 是成都理工人工智能本科、上海交通大学机械硕士在读，持续关注 LLM Agent、AI Infra 与具身智能。',links:['about','undergraduate','graduate','projects']}
+    {match:/关于|介绍|背景|学校|交大|sjtu|cdut|经历|你是谁|determine/i,text:'determine 是上海交通大学硕士在读、成都理工大学本科，持续关注 LLM Agent、AI Infra 与具身智能。',links:['about','undergraduate','graduate','projects']}
   ];
   const stopWords=new Set(['帮我','看看','介绍','一下','哪些','这个','怎么','如何','记录','最近','我的','博客','可以','想要','一下子','以及','关于','从哪','有没有','吗','呢','什么','我想','推荐']);
 

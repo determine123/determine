@@ -11,7 +11,7 @@ permalink: /about/
 <h1 id="profile-name">determine</h1>
 <div class="about-role">Agent 开发 · AI Infra · 智能系统</div>
 <nav class="about-links" aria-label="个人链接"><a href="mailto:determine@sjtu.edu.cn">Email</a><a href="https://github.com/determine123">GitHub</a><a href="{{ '/projects/' | relative_url }}">Projects</a><a href="{{ '/archive/' | relative_url }}">Writing</a></nav>
-<p>你好，我是 <strong>determine</strong>，上海交通大学机械硕士在读，成都理工大学人工智能本科。主攻 <strong>Agent 开发</strong>，关注 AI Infra、具身智能和机器人控制。</p>
+<p>你好，我是 <strong>determine</strong>，上海交通大学硕士在读，成都理工大学本科。主攻 <strong>Agent 开发</strong>，关注 AI Infra、具身智能和机器人控制。</p>
 <p>我希望把模型能力落实为可以运行、评估和维护的系统。在这里记录工具调用、工作流、算子优化与工程实践，也保留学习过程和生活的片段。</p>
 <p class="about-availability">正在寻找 Agent 开发、AI Infra 相关实习机会，欢迎交流。</p>
 </div>
@@ -33,7 +33,7 @@ permalink: /about/
 <article class="about-project"><div class="about-project-mark"><b>04</b>COMMUNITY</div><div><h3><a href="https://github.com/determine123/hupiao-treehole-app">沪漂树洞</a></h3><p class="about-meta">Android 内测 · Python / FastAPI · Expo</p><p>面向沪漂生活的匿名交流应用，持续完善内容审核、举报和内测反馈。Android APK 与 Python 后端已进入内测；iOS 与商店发布仍在推进。</p><div class="about-project-links"><a href="https://github.com/determine123/hupiao-treehole-app">Code ↗</a><a href="https://github.com/determine123/hupiao-treehole-app/releases">Android Releases ↗</a></div></div></article>
 <p><a href="{{ '/projects/' | relative_url }}">查看完整项目目录 →</a></p></section>
 
-<section class="about-section" id="education"><h2>Education <span>教育背景</span></h2><div class="about-education"><div><h3>上海交通大学</h3><p>机械 · 硕士在读</p></div><div><h3>成都理工大学</h3><p>人工智能 · 本科</p></div></div></section>
+<section class="about-section" id="education"><h2>Education <span>教育背景</span></h2><div class="about-education"><div><h3>上海交通大学</h3><p>硕士在读</p></div><div><h3>成都理工大学</h3><p>本科</p></div></div></section>
 
 <section class="about-section" id="github-activity" aria-labelledby="github-activity-title">
 <div class="about-activity-heading"><h2 id="github-activity-title">GitHub Activity <span>贡献日历</span></h2><a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer">查看 GitHub 主页 ↗</a></div>
