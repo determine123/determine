@@ -6,6 +6,7 @@
 .minimal-top nav a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--accent);transition:right .18s ease}
 .minimal-top nav a:hover::after,.minimal-top nav a.is-active::after{right:0}
 .minimal-top nav a.is-active{color:var(--ink)}
+.minimal-top nav .nav-travelling{color:var(--accent);white-space:nowrap}
 
 .section-surface #page-content{min-height:58vh}
 .section-page{width:min(100% - 40px,860px);margin:64px auto 86px}
@@ -65,6 +66,19 @@
 .section-surface .friend-card p{font-size:12px;line-height:1.75}
 .section-surface .friend-card small{font-size:9px}
 .section-surface .friend-page details{margin-top:18px;border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:transparent}
+.friend-train{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:24px;margin-top:22px;padding:22px;border:1px solid var(--line);border-radius:6px;background:color-mix(in srgb,var(--card) 70%,transparent)}
+.friend-train-board{min-width:0}
+.friend-train-board>span{display:flex;justify-content:space-between;gap:18px;margin-bottom:16px;font:9px var(--mono);letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+.friend-train-board>span b{color:var(--accent);font-weight:500}
+.friend-train-board>a{display:grid;gap:7px;color:var(--ink)}
+.friend-train-board strong{font:600 21px/1.4 var(--serif)}
+.friend-train-board small{font-size:12px;line-height:1.7;color:var(--muted)}
+.friend-train-board code{overflow:hidden;font:9px var(--mono);color:var(--faint);text-overflow:ellipsis;white-space:nowrap}
+.friend-train-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start}
+.friend-train-controls button,.friend-train-controls a{display:flex;align-items:center;justify-content:center;min-height:38px;padding:0 10px;border:1px solid var(--line);border-radius:5px;background:transparent;color:var(--muted);font:10px var(--mono);cursor:pointer}
+.friend-train-controls button:hover,.friend-train-controls a:hover{border-color:var(--accent);color:var(--accent)}
+.friend-train-controls .friend-train-visit{grid-column:1/-1}
+.friend-train-controls .friend-train-random{grid-column:1/-1;border-color:var(--accent);color:var(--accent)}
 
 .section-surface .footprint-page>.paper{margin:0;padding:38px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent!important}
 .section-surface .footprint-page>.paper>h2,.section-surface .fp-heading h2{font:600 25px/1.4 var(--serif)}
@@ -86,5 +100,6 @@
   .project-entry{grid-template-columns:1fr 60px;gap:10px 16px}.project-index{grid-column:1}.project-entry>div{grid-column:1/-1}.project-entry>strong{grid-column:2;grid-row:1}
   .section-page #catalog>ul{grid-template-columns:1fr}
   .section-surface .friend-grid{grid-template-columns:1fr}.section-surface .friend-card:nth-child(n){padding:18px 0;border-left:0}
+  .friend-train{grid-template-columns:1fr;padding:18px}.friend-train-controls{grid-template-columns:1fr 1fr}
   .section-surface .fp-stats{display:grid;grid-template-columns:1fr;gap:8px}.section-surface .fp-stats b{font-size:20px}
 }
