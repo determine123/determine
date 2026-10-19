@@ -2,7 +2,9 @@
   const panel=document.getElementById('global-music');if(!panel)return;
   const handle=document.getElementById('music-handle'),lock=document.getElementById('music-lock'),reopen=document.getElementById('music-reopen'),position=document.getElementById('music-position'),status=document.getElementById('music-position-status');
   let state={locked:false,closed:false,x:null,y:null,corner:null},drag=null;
-  try{Object.assign(state,JSON.parse(localStorage.getItem('determine-music-window'))||{})}catch{}
+  let hasSavedState=false;
+  try{const saved=JSON.parse(localStorage.getItem('determine-music-window'));if(saved){Object.assign(state,saved);hasSavedState=true}}catch{}
+  if(!hasSavedState&&matchMedia('(max-width:700px)').matches)state.closed=true;
   function save(){try{localStorage.setItem('determine-music-window',JSON.stringify(state))}catch{}}
   function place(x,y){
     const bounds=panel.getBoundingClientRect();
