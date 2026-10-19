@@ -4,6 +4,7 @@ _site/
 vendor/
 Gemfile.lock
 .cloudflare-site/
+.wrangler/
 __pycache__/
 
 # Local Python compiled files
