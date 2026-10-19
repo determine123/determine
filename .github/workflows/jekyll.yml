@@ -91,3 +91,30 @@ jobs:
           assert 'id="home-explore-title"' in html, 'Published homepage is missing topic entry points'
           print('Published blog responds successfully with the profile-first layout, writing entry points, music player, and blog Agent.')
           PY
+
+  deploy-vercel:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+    steps:
+      - name: Download mirror package
+        uses: actions/download-artifact@v4
+        with:
+          name: cloudflare-static-site
+          path: .cloudflare-site
+      - name: Link Vercel project
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          mkdir -p .cloudflare-site/.vercel
+          printf '{"orgId":"%s","projectId":"%s","projectName":"determine-blog"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .cloudflare-site/.vercel/project.json
+      - name: Deploy Vercel mirror
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx --yes vercel@latest deploy .cloudflare-site --prod --yes --token "$VERCEL_TOKEN"
+      - name: Verify Vercel mirror
+        run: |
+          curl --fail --location --retry 4 --retry-all-errors --retry-delay 5 --connect-timeout 10 --max-time 30 'https://determine-blog.vercel.app/determine/' -o /tmp/vercel-home.html
+          grep -q 'class="profile-home"' /tmp/vercel-home.html

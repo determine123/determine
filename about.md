@@ -21,7 +21,7 @@ permalink: /about/
 <figcaption>Shanghai, China<br><a href="mailto:determine@sjtu.edu.cn">determine@sjtu.edu.cn</a></figcaption>
 </figure>
 </section>
-<nav class="about-sections" aria-label="关于页目录"><a href="#interests">关注方向</a><a href="#selected-projects">精选项目</a><a href="#education">教育背景</a><a href="#github-activity">贡献日历</a><a href="#contributions">开源贡献</a></nav>
+<nav class="about-sections" aria-label="关于页目录"><a href="#interests">关注方向</a><a href="#selected-projects">精选项目</a><a href="#education">教育背景</a><a href="#github-activity">贡献日历</a><a href="#contributions">开源贡献</a><a href="#distribution">网页分发</a></nav>
 
 <section class="about-section" id="interests"><h2>Interests <span>关注方向</span></h2>
 <dl class="about-interest-grid"><div><dt>Agent Engineering</dt><dd>工具调用、RAG、记忆与工作流编排，以及可追踪的评估过程。</dd></div><div><dt>AI Infrastructure</dt><dd>推理效率、Triton 算子、跨后端实验与可复现的性能记录。</dd></div><div><dt>Embodied Intelligence</dt><dd>强化学习、仿真，以及智能系统的决策与控制。</dd></div></dl></section>
@@ -49,4 +49,15 @@ permalink: /about/
 
 <section class="about-section" id="contributions"><h2>Open Source <span>开源贡献</span></h2><ul class="about-contributions"><li><a href="https://github.com/caomaolufei/AIInfraGuide/pull/46">AIInfraGuide · PR #46</a><small>贡献详情与讨论</small></li><li><a href="https://github.com/bojieli/ai-infra-book/pull/3">ai-infra-book · PR #3</a><small>贡献详情与讨论</small></li><li><a href="https://github.com/adongwanai/AgentGuide/pull/167">AgentGuide · PR #167</a><small>贡献详情与讨论</small></li></ul></section>
 
-<footer class="about-closing"><p>欢迎就项目、学习或实习机会联系我：<a href="mailto:determine@sjtu.edu.cn">determine@sjtu.edu.cn</a>。</p><p><a href="{{ '/feed.xml' | relative_url }}">订阅 RSS</a> · <a href="{{ '/colophon/' | relative_url }}">关于本站与内容来源</a></p><p class="about-credit">页面排版参考 <a href="https://tairanhe.com/">Tairan He 的个人主页</a>，项目与经历以本站公开资料为依据。</p></footer>
+<section class="about-section" id="distribution" aria-labelledby="distribution-title">
+<h2 id="distribution-title">Distribution <span>网页分发</span></h2>
+<p class="distribution-intro">本站在多个平台提供访问入口。内容相同；如果当前线路加载较慢，可以直接切换到另一个镜像。</p>
+<div class="distribution-grid">
+<a class="distribution-card" href="https://determine123.github.io/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">GH</span><span><strong>GitHub Pages</strong><small>determine123.github.io/determine</small></span><b aria-hidden="true">↗</b></a>
+<a class="distribution-card" href="https://determine-blog.vercel.app/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">▲</span><span><strong>Vercel</strong><small>determine-blog.vercel.app</small></span><b aria-hidden="true">↗</b></a>
+<a class="distribution-card" href="https://determine-blog.personal-blog-space-time.workers.dev/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">CF</span><span><strong>Cloudflare Workers</strong><small>determine-blog.personal-blog-space-time.workers.dev</small></span><b aria-hidden="true">↗</b></a>
+</div>
+<p class="distribution-note">GitHub Pages 是主站，Vercel 随主分支自动发布；Cloudflare 提供备用访问线路。所有入口均使用 HTTPS。</p>
+</section>
+
+<footer class="about-closing"><p>欢迎就项目、学习或实习机会联系我：<a href="mailto:determine@sjtu.edu.cn">determine@sjtu.edu.cn</a>。</p><p><a href="{{ '/feed.xml' | relative_url }}">订阅 RSS</a> · <a href="{{ '/colophon/' | relative_url }}">关于本站与内容来源</a></p><p class="about-credit">页面排版参考 <a href="https://tairanhe.com/">Tairan He 的个人主页</a>，网页分发展示参考 <a href="https://axi404.top/about">Axi's Blog</a>；项目与经历以本站公开资料为依据。</p></footer>
