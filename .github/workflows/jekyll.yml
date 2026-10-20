@@ -116,5 +116,5 @@ jobs:
         run: npx --yes vercel@latest deploy .cloudflare-site --prod --yes --token "$VERCEL_TOKEN"
       - name: Verify Vercel mirror
         run: |
-          curl --fail --location --retry 4 --retry-all-errors --retry-delay 5 --connect-timeout 10 --max-time 30 'https://determine-blog.vercel.app/determine/' -o /tmp/vercel-home.html
+          curl --fail --location --retry 4 --retry-all-errors --retry-delay 5 --connect-timeout 10 --max-time 30 'https://determine-blog.vercel.app/' -o /tmp/vercel-home.html
           grep -q 'class="profile-home"' /tmp/vercel-home.html

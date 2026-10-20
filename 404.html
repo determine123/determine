@@ -5,3 +5,14 @@ permalink: /404.html
 ---
 
 这个地址可能已经移动。你可以返回[首页]({{ '/' | relative_url }})，或使用底部搜索找到文章。
+
+<script>
+(() => {
+  const oldPrefix = '/determine';
+  const path = window.location.pathname;
+  if (path === oldPrefix || path.startsWith(`${oldPrefix}/`)) {
+    const destination = path.slice(oldPrefix.length) || '/';
+    window.location.replace(`${destination}${window.location.search}${window.location.hash}`);
+  }
+})();
+</script>

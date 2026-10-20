@@ -54,9 +54,9 @@ body_class: section-surface
 <h2 id="distribution-title">Distribution <span>网页分发</span></h2>
 <p class="distribution-intro">本站在多个平台提供访问入口。内容相同；如果当前线路加载较慢，可以直接切换到另一个镜像。</p>
 <div class="distribution-grid">
-<a class="distribution-card" href="https://determine123.github.io/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">GH</span><span><strong>GitHub Pages</strong><small>determine123.github.io/determine</small></span><b aria-hidden="true">↗</b></a>
-<a class="distribution-card" href="https://determine-blog.vercel.app/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">▲</span><span><strong>Vercel</strong><small>determine-blog.vercel.app</small></span><b aria-hidden="true">↗</b></a>
-<a class="distribution-card" href="https://determine-blog.personal-blog-space-time.workers.dev/determine/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">CF</span><span><strong>Cloudflare Workers</strong><small>determine-blog.personal-blog-space-time.workers.dev</small></span><b aria-hidden="true">↗</b></a>
+<a class="distribution-card" href="https://determine123.github.io/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">GH</span><span><strong>GitHub Pages</strong><small>determine123.github.io</small></span><b aria-hidden="true">↗</b></a>
+<a class="distribution-card" href="https://determine-blog.vercel.app/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">▲</span><span><strong>Vercel</strong><small>determine-blog.vercel.app</small></span><b aria-hidden="true">↗</b></a>
+<a class="distribution-card" href="https://determine-blog.personal-blog-space-time.workers.dev/" target="_blank" rel="noopener noreferrer"><span class="distribution-mark" aria-hidden="true">CF</span><span><strong>Cloudflare Workers</strong><small>determine-blog.personal-blog-space-time.workers.dev</small></span><b aria-hidden="true">↗</b></a>
 </div>
 <p class="distribution-note">GitHub Pages 是主站，Vercel 随主分支自动发布；Cloudflare 提供备用访问线路。所有入口均使用 HTTPS。</p>
 </section>

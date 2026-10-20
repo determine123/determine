@@ -47,7 +47,7 @@ function validateContext(context) {
     if (!item || typeof item.title !== "string" || typeof item.url !== "string") return [];
     let url;
     try { url = new URL(item.url); } catch { return []; }
-    if (url.origin !== "https://determine123.github.io" || !url.pathname.startsWith("/determine/")) return [];
+    if (url.origin !== "https://determine123.github.io") return [];
     const title = item.title.replace(/[<>\u0000-\u001f]/g, " ").slice(0, 180);
     const row = `- ${title}: ${url.origin}${url.pathname}`;
     if (used + row.length > MAX_CONTEXT_CHARS) return [];

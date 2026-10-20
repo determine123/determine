@@ -38,7 +38,7 @@ test('chat uses the free GLM Flash model and never returns the provider key', as
   const response = await worker.fetch(new Request('https://agent.example/api/agent', {
     method: 'POST', headers: { origin, 'content-type': 'application/json' },
     body: JSON.stringify({ message: '介绍项目', history: [{ role: 'user', content: '我在看博客' }], context: [
-      { title: '项目目录', url: `${origin}/determine/projects/` },
+      { title: '项目目录', url: `${origin}/projects/` },
       { title: 'untrusted external page', url: 'https://attacker.example/fake' },
     ] }),
   }), env);
@@ -78,7 +78,7 @@ test('rejects foreign origins, malformed bodies, and oversized questions', async
 
   const tooLarge = await worker.fetch(new Request('https://agent.example/api/agent', {
     method: 'POST', headers: { origin, 'content-type': 'application/json' },
-    body: JSON.stringify({ message: 'ok', context: [{ title: 'x'.repeat(9000), url: `${origin}/determine/` }] }),
+    body: JSON.stringify({ message: 'ok', context: [{ title: 'x'.repeat(9000), url: `${origin}/` }] }),
   }), env);
   assert.equal(tooLarge.status, 413);
 });
