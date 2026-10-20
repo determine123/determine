@@ -2,7 +2,7 @@
 :root{
   --ink:#111820;--muted:#5f6973;--faint:#8d969e;--accent:#315f72;--accent-strong:#244c5d;
   --card:#fff;--card-solid:#fff;--line:#d9e0e5;--line-strong:#c5ced5;--shadow:none;
-  --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  --sans:"文悦新青年体","WenYue_XinQingNianTi_J-W8",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
   --serif:"Songti SC","Noto Serif SC",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Consolas,monospace;
   color-scheme:light;
 }
