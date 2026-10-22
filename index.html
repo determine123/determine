@@ -1,77 +1,35 @@
 ---
 layout: personal
 ---
-
-{% assign record_count = site.posts.size | plus: site.essays.size | plus: site.learning.size %}
-<main class="profile-home">
-  <header class="profile-identity" aria-labelledby="home-title">
-    <img src="{{ site.sidebar-avatar }}" alt="determine 的头像" width="140" height="140" loading="eager" decoding="async">
-    <div>
-      <p class="profile-kicker">PERSONAL BLOG / ENGINEERING NOTES</p>
-      <h1 id="home-title">determine</h1>
-      <nav class="profile-links" aria-label="个人链接">
-        <span><b aria-hidden="true">⌖</b> 上海</span>
-        <a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer"><b aria-hidden="true">⌘</b> GitHub</a>
-        <a href="mailto:determine@sjtu.edu.cn"><b aria-hidden="true">✉</b> Email</a>
-        <button type="button" id="blog-agent-inline"><b aria-hidden="true">✦</b> Blog Agent</button>
-      </nav>
-    </div>
+<main class="thought-home">
+  <header class="thought-intro" aria-labelledby="home-about-title">
+    <p class="thought-eyebrow">NOTES, CODE &amp; THE OPEN ROAD</p>
+    <h1 id="home-about-title">记录思考，也记录沿途。</h1>
+    <p>你好，我是 determine。上海交通大学硕士在读，成都理工大学本科。<br>关注 LLM Agent、AI Infra 与具身智能，在这里记录项目实践、阅读笔记，以及骑行路上的见闻。</p>
+    <nav class="thought-social" aria-label="个人链接"><a href="https://github.com/determine123" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:determine@sjtu.edu.cn">Email ↗</a><a href="https://space.bilibili.com/1553355526" target="_blank" rel="noopener noreferrer">Bilibili ↗</a><button type="button" id="blog-agent-inline">Ask my blog ↗</button></nav>
   </header>
-
-  <section class="profile-row profile-about" aria-labelledby="home-about-title">
-    <h2 id="home-about-title">About</h2>
-    <div class="profile-row-body">
-      <p class="profile-role">学生 / Agent Developer</p>
-      <p>上海交通大学硕士在读，成都理工大学本科。关注 LLM Agent、AI Infra 与具身智能，也记录项目实践、论文阅读和沿途见闻。</p>
-      <a class="profile-more" href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">›</span></a>
-    </div>
+  <section class="thought-calendar" aria-labelledby="home-stats-title" data-thought-calendar data-today="{{ site.time | date: '%Y-%m-%d' }}">
+    <div class="thought-calendar-head"><h2 id="home-stats-title">Writing, over time</h2><span>最近一年的公开记录</span></div>
+    <div class="thought-calendar-grid" tabindex="0" role="group" aria-label="按发布日期生成的更新日历，可横向滚动"></div>
+    <p class="thought-calendar-note"><span data-calendar-caption>文章与随笔 · 按原始发布日期</span><a href="{{ '/timeline/' | relative_url }}">Browse archive ↗</a></p>
+    <div data-calendar-records hidden>{% for post in site.posts %}<a href="{{ post.url | relative_url }}" data-date="{{ post.date | date: '%Y-%m-%d' }}">{{ post.title | escape }}</a>{% endfor %}{% for essay in site.essays %}<a href="{{ essay.url | relative_url }}" data-date="{{ essay.date | date: '%Y-%m-%d' }}">{{ essay.title | escape }}</a>{% endfor %}</div>
+    <noscript><p>更新记录见 <a href="{{ '/timeline/' | relative_url }}">时间归档</a>。</p></noscript>
   </section>
-
-  <section class="profile-row" aria-labelledby="home-education-title">
-    <h2 id="home-education-title">Education</h2>
-    <div class="education-list">
-      <article><h3>上海交通大学</h3><p>硕士在读</p><small>SJTU · PRESENT</small></article>
-      <article><h3>成都理工大学</h3><p>本科</p><small>CDUT · BACHELOR</small></article>
+  <div class="thought-columns">
+    <div>
+      <section class="thought-section" aria-labelledby="latest-writing-title">
+        <div class="thought-section-heading"><h2 id="latest-writing-title">Recent notes</h2><a href="{{ '/archive/' | relative_url }}">All writing ↗</a></div>
+        {% for post in site.posts limit:8 %}<article class="thought-note"><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><div class="thought-note-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y-%m-%d' }}</time>{% for tag in post.tags limit:2 %}<a href="{{ '/archive/' | relative_url }}?tag={{ tag | url_encode }}">#{{ tag | escape }}</a>{% endfor %}</div>{% if post.description %}<p>{{ post.description | strip_html | truncate: 115 }}</p>{% endif %}</article>{% endfor %}
+      </section>
+      <section class="thought-section" aria-labelledby="home-explore-title">
+        <div class="thought-section-heading"><h2 id="home-explore-title">On the road</h2><a href="{{ '/footprints/' | relative_url }}">All footprints ↗</a></div>
+        <div class="thought-journeys"><a href="{{ '/sichuan-tibet-318/' | relative_url }}">318 · 从成都骑到拉萨<span>2023 年夏天，全程骑行 23 天。</span></a><a href="{{ '/chengdu-xian/' | relative_url }}">成都—西安 · 雨中的秦岭与夜里的华山<span>2024 年五一，一段骑行与登山的记录。</span></a><a href="{{ '/hainan-island/' | relative_url }}">环海南岛 · 海风、烟花与公路<span>2026 年五一，沿着海岸继续出发。</span></a></div>
+      </section>
     </div>
-  </section>
-
-  <section class="profile-row" aria-labelledby="home-stats-title">
-    <h2 id="home-stats-title">Statistics</h2>
-    <div class="profile-row-body">
-      <div class="profile-stats">
-        <article><span aria-hidden="true">◷</span><strong data-site-uptime-days data-source="{{ '/site-status.json' | relative_url }}?v={{ site.time | date: '%s' }}">—</strong><small>Days Online</small></article>
-        <article><span aria-hidden="true">□</span><time data-site-updated-date datetime="">{{ site.time | date: '%b %d, %Y' }}</time><small>Last Updated</small></article>
-        <article><span aria-hidden="true">▤</span><strong>{{ record_count }}</strong><small>Public Records</small></article>
-      </div>
-      <div class="profile-total"><span>Total Posts</span><strong>{{ site.posts.size }}</strong></div>
-      <a class="profile-contributions" href="https://github.com/determine123" target="_blank" rel="noopener noreferrer" aria-label="查看 determine123 的 GitHub 贡献记录">
-        <picture>
-          <source srcset="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake-dark.svg" media="(prefers-color-scheme: dark)">
-          <img src="https://raw.githubusercontent.com/determine123/determine/output/github-contribution-grid-snake.svg" alt="determine123 的 GitHub 贡献日历" width="900" height="140" loading="lazy" decoding="async">
-        </picture>
-        <span>GitHub contribution history</span><span>View profile ↗</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="profile-row" aria-labelledby="latest-writing-title">
-    <h2 id="latest-writing-title">Writing</h2>
-    <div class="profile-row-body">
-      <div class="profile-writing-list">
-        {% for post in site.posts limit:5 %}
-        <a href="{{ post.url | relative_url }}"><span><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time><small>{% if post.tags.first %}{{ post.tags.first }}{% else %}NOTE{% endif %}</small></span><strong>{{ post.title | escape }}</strong><i aria-hidden="true">↗</i></a>
-        {% endfor %}
-      </div>
-      <a class="profile-more" href="{{ '/archive/' | relative_url }}">All writing <span aria-hidden="true">›</span></a>
-    </div>
-  </section>
-
-  <section class="profile-row" aria-labelledby="home-explore-title">
-    <h2 id="home-explore-title">Explore</h2>
-    <div class="profile-explore">
-      <a href="{{ '/projects/' | relative_url }}"><span>01</span><strong>Projects</strong><small>Agent、AI Infra 与工程实践</small></a>
-      <a href="{{ '/learning/' | relative_url }}"><span>02</span><strong>Study</strong><small>论文、课程与学习笔记</small></a>
-      <a href="{{ '/footprints/' | relative_url }}"><span>03</span><strong>Journeys</strong><small>城市足迹与长途骑行</small></a>
-    </div>
-  </section>
+    <aside class="thought-aside" aria-label="笔记导航">
+      <section><h2>Explore</h2><a href="{{ '/learning/' | relative_url }}">Study <small>{{ site.learning.size }} notes</small></a><a href="{{ '/projects/' | relative_url }}">Projects ↗</a><a href="{{ '/essays/' | relative_url }}">Jottings <small>{{ site.essays.size }} entries</small></a><a href="{{ '/guestbook/' | relative_url }}">Guestbook ↗</a><a href="{{ '/about/' | relative_url }}">About me ↗</a></section>
+      <section><h2>Topics</h2>{% for tag in site.tags limit:12 %}<a class="thought-topic" href="{{ '/archive/' | relative_url }}?tag={{ tag[0] | url_encode }}">{{ tag[0] | escape }}</a>{% endfor %}</section>
+      <section><h2>Elsewhere</h2><a href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS ↗</a><a href="{{ '/links/' | relative_url }}">Friends &amp; links ↗</a><a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener noreferrer">Travellings ↗</a><p>抖音：ltm1524001843</p></section>
+    </aside>
+  </div>
 </main>

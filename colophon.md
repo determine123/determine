@@ -45,3 +45,8 @@ QQ 空间迁移内容按原记录时间归档；标记为编辑时间的记录�
 - 可勾选“本浏览器不参与统计”排除自己的后续请求，替代静态网站无法直接识别的 WordPress 管理员登录状态。
 
 GitHub Pages 不运行 PHP 或服务器 session，因此没有照搬参考文章的数据库代码，也不以空 Referer 判断真实访客。
+
+
+### 当前阅读风格
+
+界面参考 [ThoughtLite](https://thought-lite.ttio.workers.dev/)、[主题源码](https://github.com/tuyuritio/astro-theme-thought-lite)与 [ttio 的笔记列表](https://ttio.cc/note?page=1)：暖白背景、衬线排版、紧凑导航与内容列表。本站沿用 Jekyll，布局、样式与更新日历在本仓库独立实现；没有复制主题代码、示例内容或第三方统计。
