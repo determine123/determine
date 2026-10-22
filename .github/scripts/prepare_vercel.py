@@ -1,4 +1,4 @@
-"""Package the already-built Jekyll site for Vercel's Build Output API."""
+"""Package the already-built static site for Vercel's Build Output API."""
 from pathlib import Path
 import json
 import shutil
@@ -7,7 +7,7 @@ import shutil
 def prepare(source: Path, output: Path) -> None:
     """Copy rendered site files to Vercel's v3 static output directory."""
     if not (source / "index.html").is_file():
-        raise SystemExit("Build the Jekyll site before preparing the Vercel output.")
+        raise SystemExit("Build the static site before preparing the Vercel output.")
     if output.exists():
         raise SystemExit("Vercel output already exists; use a fresh build directory.")
 
@@ -22,4 +22,4 @@ def prepare(source: Path, output: Path) -> None:
 
 if __name__ == "__main__":
     prepare(Path("_site"), Path(".vercel/output"))
-    print("Prepared the rendered Jekyll site as a Vercel v3 static output.")
+    print("Prepared the rendered static site as a Vercel v3 static output.")

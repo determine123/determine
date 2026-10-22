@@ -1,0 +1,10 @@
+---
+import Base from '$layouts/Base.astro';
+import pages from '../generated/pages.json';
+import aliases from '../generated/aliases.json';
+export function getStaticPaths() {
+  return [...pages.map(page => ({params:{legacy:page.path},props:{page,target:null}})), ...aliases.map(alias => ({params:{legacy:alias.path},props:{page:null,target:alias.target}}))];
+}
+const {page,target} = Astro.props;
+---
+{target ? <html lang="zh-CN"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><meta http-equiv="refresh" content={`0;url=${target}`} /><link rel="canonical" href={new URL(target,Astro.site)} /><title>Redirect · determine</title></head><body><a href={target}>继续阅读 →</a><script is:inline define:vars={{target}}>location.replace(target+location.search+location.hash);</script></body></html> : <Base locale="zh-cn" title={page.title}><div class="legacy-content"><Fragment set:html={page.html} /></div></Base>}

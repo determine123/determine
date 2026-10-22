@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+public/*
+!public/favicon.svg
+src/generated/
+src/content/note/
+src/content/jotting/
+src/content/preface/
+src/content/information/

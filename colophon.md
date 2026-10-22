@@ -18,7 +18,7 @@ QQ 空间迁移内容按原记录时间归档；标记为编辑时间的记录�
 
 ### 程序与主题
 
-本站使用 [Jekyll](https://jekyllrb.com/)，托管在 GitHub Pages。博客模板来自 [Hux Blog](https://github.com/Huxpro/huxpro.github.io)，页面布局在此基础上调整；评论由 [Waline](https://waline.js.org/) 提供。程序与第三方组件遵循各自许可。
+本站使用 [Astro](https://astro.build/) 与 [ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite)，托管在 GitHub Pages 并同步到 Vercel。历史 Jekyll 源文件作为内容导入来源保留，最终页面由 Astro 生成；评论由 [Waline](https://waline.js.org/) 提供。程序与第三方组件遵循各自许可。
 
 ### 独立博客与十年之约
 
@@ -47,6 +47,6 @@ QQ 空间迁移内容按原记录时间归档；标记为编辑时间的记录�
 GitHub Pages 不运行 PHP 或服务器 session，因此没有照搬参考文章的数据库代码，也不以空 Referer 判断真实访客。
 
 
-### 当前阅读风格
+### 当前博客模板
 
-界面参考 [ThoughtLite](https://thought-lite.ttio.workers.dev/)、[主题源码](https://github.com/tuyuritio/astro-theme-thought-lite)与 [ttio 的笔记列表](https://ttio.cc/note?page=1)：暖白背景、衬线排版、紧凑导航与内容列表。本站沿用 Jekyll，布局、样式与更新日历在本仓库独立实现；没有复制主题代码、示例内容或第三方统计。
+本站实际使用 tuyuritio 的 [Astro Theme ThoughtLite](https://github.com/tuyuritio/astro-theme-thought-lite) 模板，保留其原生首页、笔记与随笔列表、分页、标签筛选、热力图和主题切换。主题源码及 GPL-3.0 许可保存在仓库 `astro-site/`。本站在此基础上适配身份信息、旧链接、原评论路径、城市足迹、照片墙、搜索与博客助手。GPL 适用于主题代码，文章与照片仍遵循各自的原创与引用条款。
