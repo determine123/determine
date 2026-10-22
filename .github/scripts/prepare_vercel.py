@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 import shutil
+import sys
 
 
 def prepare(source: Path, output: Path) -> None:
@@ -21,5 +22,5 @@ def prepare(source: Path, output: Path) -> None:
 
 
 if __name__ == "__main__":
-    prepare(Path("_site"), Path(".vercel/output"))
+    prepare(Path(sys.argv[1]) if len(sys.argv) > 1 else Path("_site"), Path(".vercel/output"))
     print("Prepared the rendered static site as a Vercel v3 static output.")
